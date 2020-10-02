@@ -1,0 +1,634 @@
+[
+  {
+    "doctor_id": "52",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Clinton",
+    "last_name": "Opega",
+    "email": "steve.kabuubi@kawuki.net",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "52515",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "is_mobile": true,
+    "location": {
+      "address": "",
+      "geocodes": ["0.559043784829307", "31.410714799756"]
+    },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "53",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Dolores",
+    "last_name": "Kalumba",
+    "email": "tumwesigye.dahlia@bwana.net",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "53590",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "is_mobile": true,
+    "location": {
+      "address": "Albany",
+      "geocodes": ["0.28737790127925", "31.913835568541"]
+    },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "54",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Evelyn",
+    "last_name": "Kivumbi",
+    "email": "wkityamuwesi@aisu.net",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "54361",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "55",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Teresa",
+    "last_name": "Muhwezi",
+    "email": "akasumba@kayemba.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "55793",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "56",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Lucy",
+    "last_name": "Kabuubi",
+    "email": "shawn.tumwiine@kanyesigye.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "56567",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "57",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Keith",
+    "last_name": "Mwesige",
+    "email": "kateregga.tony@hotmail.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "57414",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "58",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Emmanuel",
+    "last_name": "Aurishaba",
+    "email": "wrusiimwa@gmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "58497",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "59",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Abdul",
+    "last_name": "Bukenya",
+    "email": "dylan.asasira@munyagwa.info",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "59208",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "60",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Luis",
+    "last_name": "Bbosa",
+    "email": "tumusiime.anna@ijaga.org",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "60742",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "61",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Nina",
+    "last_name": "Byaruhanga",
+    "email": "tusiime.kevin@gmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "61637",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "62",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Joesph",
+    "last_name": "Okumuringa",
+    "email": "ykawuki@yahoo.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "62326",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "63",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Naomie",
+    "last_name": "Migisha",
+    "email": "user@doctor.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "63481",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "is_mobile": true,
+    "location": {
+      "address": "San Francisco",
+      "geocodes": ["0.2746571512146894", "32.556078300149416"]
+    },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "64",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "George",
+    "last_name": "Migisha",
+    "email": "kansiime.dave@yahoo.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "64592",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "65",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Ruthe",
+    "last_name": "Okumuringa",
+    "email": "tendo.eddie@kansiime.net",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "65478",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "66",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Nathan",
+    "last_name": "Kasekende",
+    "email": "muhwezi.jabari@yahoo.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "66584",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "67",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Jane",
+    "last_name": "Akankunda",
+    "email": "tusiime.owen@bugala.biz",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "67975",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "69",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Hope",
+    "last_name": "Murungi",
+    "email": "akashaba.jimmy@hotmail.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "69983",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "71",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Amy",
+    "last_name": "Murungi",
+    "email": "christopher.baguma@kawooya.info",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "71526",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "72",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Adrianna",
+    "last_name": "Kabuubi",
+    "email": "mohammad.odeke@hotmail.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "72170",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "73",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Raul",
+    "last_name": "Nuwamanya",
+    "email": "ezra.akashabe@hotmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "73516",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "75",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Nicolas",
+    "last_name": "Mbabazi",
+    "email": "mabel43@akashaba.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "75545",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "78",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Theodore",
+    "last_name": "Nkurunungi",
+    "email": "sid19@buyinza.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "78247",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "82",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Nasir",
+    "last_name": "Baguma",
+    "email": "edmund.kabuubi@yahoo.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "82906",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "85",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Emily",
+    "last_name": "Byaruhanga",
+    "email": "susanna.lunyoro@yahoo.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "85113",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "87",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Dolly",
+    "last_name": "Kasekende",
+    "email": "chris.kiwanuka@kisitu.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "87286",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "89",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Gaston",
+    "last_name": "Muyambi",
+    "email": "lrwabyoma@yahoo.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "89622",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "is_mobile": true,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "121",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Eva",
+    "last_name": "Nayebare",
+    "email": "dina.bakabulindi@gmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "121654",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "126",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Charles",
+    "last_name": "Kirabira",
+    "email": "jaqueline.lunyoro@gmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "126541",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": true,
+    "location": { "address": "San Francisco", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "128",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "Benny",
+    "last_name": "Kanshabe",
+    "email": "rwabyoma.berta@hotmail.co.ug",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "128729",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "is_mobile": false,
+    "location": { "address": "", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "130",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "kato",
+    "last_name": "moses",
+    "email": "kato@doctor.com",
+    "active": false,
+    "created_on": 1588970369,
+    "reg_number": "DNT-213",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "is_mobile": true,
+    "location": { "address": "Miami", "geocodes": [] },
+    "services": [],
+    "slots": []
+  },
+  {
+    "doctor_id": "154",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/wona-39cfa.appspot.com/o/no-user-image.png?alt=media",
+    "first_name": "ignatius",
+    "last_name": "yesigye",
+    "email": "ignatiusyesigye@gmail.com",
+    "active": true,
+    "created_on": 1588970369,
+    "reg_number": "2345det",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "is_mobile": true,
+    "location": {
+      "address": "Mulago",
+      "geocodes": ["0.3402308495889882", "32.57902090238075"]
+    },
+    "services": [],
+    "slots": []
+  }
+]

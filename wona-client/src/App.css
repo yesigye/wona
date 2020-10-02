@@ -1,0 +1,46 @@
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 15px;
+  background-color: rgba(245, 245, 245);
+}
+.container {
+  margin: 80px auto 0 auto;
+  max-width: 1200px;
+}
+a {
+  text-decoration: none;
+}
+hr {
+  margin: 20px 0 !important;
+}
+h4 {
+  margin-bottom: 20px;
+}
+h5,
+h6 {
+  margin-bottom: 10px !important;
+}
+.mt1 {
+  margin-top: 0.3rem !important;
+}
+.mt2 {
+  margin-top: 1rem !important;
+}
+.mb0 {
+  margin-bottom: 0 !important;
+}
+.mb2 {
+  margin-bottom: 1rem !important;
+}
+.text-lower {
+  text-transform: lowercase;
+}
+.icon-preText {
+  margin-right: 5px;
+  font-size: inherit !important;
+  position: relative;
+  top: 2px;
+}

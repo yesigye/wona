@@ -1,0 +1,2359 @@
+[
+  {
+    "doctorId": "52",
+    "avatar": "./user.png",
+    "firstName": "Clinton",
+    "lastName": "Opega",
+    "email": "steve.kabuubi@kawuki.net",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "52515",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "isMobile": true,
+    "location": {
+      "address": "Namulanda Zone B",
+      "geocodes": ["0.559043784829307", "31.410714799756"]
+    },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "53",
+    "avatar": "../images/user.png",
+    "firstName": "Dolores",
+    "lastName": "Kalumba",
+    "email": "tumwesigye.dahlia@bwana.net",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "53590",
+    "qualifications": [
+      {
+        "honor": "Specialty of Pediatrics",
+        "institute": "Doctors community college",
+        "year": 2009
+      },
+      {
+        "honor": "Bachelor of Medicine and Surgery",
+        "institute": "Doctors Advanced university",
+        "year": 20016
+      }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "isMobile": true,
+    "location": {
+      "address": "Kajjansi Town, Entebbe",
+      "geocodes": ["0.28737790127925", "31.913835568541"]
+    },
+    "specialities": ["Primary care", "Breastfeeding", "General Pediatrics"],
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "diseases": [
+      "Baby with little weight gain",
+      "Breastfeeding disorders",
+      "Urinary infection in children",
+      "Eating disorder in lactation and early childhood",
+      "Pediatric asthma",
+      "Childhood obesity"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"],
+    "city": "Kampala",
+    "experience": 5,
+    "gender": "female"
+  },
+  {
+    "doctorId": "54",
+    "avatar": "./user.png",
+    "firstName": "Evelyn",
+    "lastName": "Kivumbi",
+    "email": "wkityamuwesi@aisu.net",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "54361",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "55",
+    "avatar": "./user.png",
+    "firstName": "Teresa",
+    "lastName": "Muhwezi",
+    "email": "akasumba@kayemba.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "55793",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "56",
+    "avatar": "./user.png",
+    "firstName": "Lucy",
+    "lastName": "Kabuubi",
+    "email": "shawn.tumwiine@kanyesigye.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "56567",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "57",
+    "avatar": "./user.png",
+    "firstName": "Keith",
+    "lastName": "Mwesige",
+    "email": "kateregga.tony@hotmail.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "57414",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "58",
+    "avatar": "./user.png",
+    "firstName": "Emmanuel",
+    "lastName": "Aurishaba",
+    "email": "wrusiimwa@gmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "58497",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "59",
+    "avatar": "./user.png",
+    "firstName": "Abdul",
+    "lastName": "Bukenya",
+    "email": "dylan.asasira@munyagwa.info",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "59208",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "60",
+    "avatar": "./user.png",
+    "firstName": "Luis",
+    "lastName": "Bbosa",
+    "email": "tumusiime.anna@ijaga.org",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "60742",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "61",
+    "avatar": "./user.png",
+    "firstName": "Nina",
+    "lastName": "Byaruhanga",
+    "email": "tusiime.kevin@gmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "61637",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "62",
+    "avatar": "./user.png",
+    "firstName": "Joesph",
+    "lastName": "Okumuringa",
+    "email": "ykawuki@yahoo.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "62326",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "63",
+    "avatar": "./user.png",
+    "firstName": "Naomie",
+    "lastName": "Migisha",
+    "email": "user@doctor.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "63481",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "isMobile": true,
+    "location": {
+      "address": "San Francisco",
+      "geocodes": ["0.2746571512146894", "32.556078300149416"]
+    },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "64",
+    "avatar": "./user.png",
+    "firstName": "George",
+    "lastName": "Migisha",
+    "email": "kansiime.dave@yahoo.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "64592",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "65",
+    "avatar": "./user.png",
+    "firstName": "Ruthe",
+    "lastName": "Okumuringa",
+    "email": "tendo.eddie@kansiime.net",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "65478",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "66",
+    "avatar": "./user.png",
+    "firstName": "Nathan",
+    "lastName": "Kasekende",
+    "email": "muhwezi.jabari@yahoo.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "66584",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "67",
+    "avatar": "./user.png",
+    "firstName": "Jane",
+    "lastName": "Akankunda",
+    "email": "tusiime.owen@bugala.biz",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "67975",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "69",
+    "avatar": "./user.png",
+    "firstName": "Hope",
+    "lastName": "Murungi",
+    "email": "akashaba.jimmy@hotmail.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "69983",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "71",
+    "avatar": "./user.png",
+    "firstName": "Amy",
+    "lastName": "Murungi",
+    "email": "christopher.baguma@kawooya.info",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "71526",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "72",
+    "avatar": "./user.png",
+    "firstName": "Adrianna",
+    "lastName": "Kabuubi",
+    "email": "mohammad.odeke@hotmail.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "72170",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "73",
+    "avatar": "./user.png",
+    "firstName": "Raul",
+    "lastName": "Nuwamanya",
+    "email": "ezra.akashabe@hotmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "73516",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Optician",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "75",
+    "avatar": "./user.png",
+    "firstName": "Nicolas",
+    "lastName": "Mbabazi",
+    "email": "mabel43@akashaba.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "75545",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "78",
+    "avatar": "./user.png",
+    "firstName": "Theodore",
+    "lastName": "Nkurunungi",
+    "email": "sid19@buyinza.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "78247",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "82",
+    "avatar": "./user.png",
+    "firstName": "Nasir",
+    "lastName": "Baguma",
+    "email": "edmund.kabuubi@yahoo.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "82906",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "85",
+    "avatar": "./user.png",
+    "firstName": "Emily",
+    "lastName": "Byaruhanga",
+    "email": "susanna.lunyoro@yahoo.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "85113",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "87",
+    "avatar": "./user.png",
+    "firstName": "Dolly",
+    "lastName": "Kasekende",
+    "email": "chris.kiwanuka@kisitu.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "87286",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "89",
+    "avatar": "./user.png",
+    "firstName": "Gaston",
+    "lastName": "Muyambi",
+    "email": "lrwabyoma@yahoo.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "89622",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dermatologist",
+    "isMobile": true,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "121",
+    "avatar": "./user.png",
+    "firstName": "Eva",
+    "lastName": "Nayebare",
+    "email": "dina.bakabulindi@gmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "121654",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "126",
+    "avatar": "./user.png",
+    "firstName": "Charles",
+    "lastName": "Kirabira",
+    "email": "jaqueline.lunyoro@gmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "126541",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": true,
+    "location": { "address": "San Francisco", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "128",
+    "avatar": "./user.png",
+    "firstName": "Benny",
+    "lastName": "Kanshabe",
+    "email": "rwabyoma.berta@hotmail.co.ug",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "128729",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Psychiatrist",
+    "isMobile": false,
+    "location": { "address": "Namulanda Zone B", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "130",
+    "avatar": "./user.png",
+    "firstName": "kato",
+    "lastName": "moses",
+    "email": "kato@doctor.com",
+    "active": false,
+    "createdAt": "2020-04-04",
+    "regNumber": "DNT-213",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Pediatrician",
+    "isMobile": true,
+    "location": { "address": "Miami", "geocodes": [] },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  },
+  {
+    "doctorId": "154",
+    "avatar": "./user.png",
+    "firstName": "ignatius",
+    "lastName": "yesigye",
+    "email": "ignatiusyesigye@gmail.com",
+    "active": true,
+    "createdAt": "2020-04-04",
+    "regNumber": "2345det",
+    "qualifications": [
+      { "honor": "BMAS", "institute": "Doctors community college" },
+      { "honor": "ADCT", "institute": "Doctors Advanced university" }
+    ],
+    "bio": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint facilis autem sit voluptas voluptatum facere id suscipit dolor vel, nesciunt hic nam? Cum minus quam omnis consequuntur? Reiciendis, doloribus. Praesentium.",
+    "department": "Dentist",
+    "isMobile": true,
+    "location": {
+      "address": "Mulago",
+      "geocodes": ["0.3402308495889882", "32.57902090238075"]
+    },
+    "services": [
+      "General Consultation",
+      "Scar Treatment",
+      "Therapy",
+      "Acupuncture"
+    ],
+    "slots": {
+      "1": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "2": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "3": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ],
+      "4": [
+        "12:00",
+        "12:20",
+        "12:40",
+        "14:00",
+        "14:30",
+        "15:00",
+        "15:30",
+        "18:00",
+        "18:30",
+        "19:00"
+      ]
+    },
+    "booked": ["2020-05-25 14:00"]
+  }
+]

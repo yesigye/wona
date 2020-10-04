@@ -6,10 +6,13 @@ import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 // Material UI
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { CircularProgress } from "@material-ui/core";
+// Utility functions
+import { getParams } from "../utils/urls";
 
 const styles = (theme) => ({
   ...theme.custom,
@@ -26,7 +29,8 @@ class RegisterForm extends Component {
     this.state = {
       email: "",
       password: "",
-      confirmPassword: "",
+      firstName: "",
+      lastName: "",
       errors: {},
     };
   }
@@ -37,12 +41,11 @@ class RegisterForm extends Component {
   }
 
   handleSubmit = (event) => {
-    console.log(this.props.history);
     event.preventDefault();
-    // this.setState({ loading: true });
-    // const { email, password, confirmPassword } = this.state;
-    // const newUser = { email, password, confirmPassword };
-    // this.props.signupUser(newUser, this.props.history);
+    this.setState({ loading: true });
+    const { email, password, firstName, lastName } = this.state;
+    const newUser = { email, password, firstName, lastName };
+    this.props.signupUser(newUser, this.props.history, this.props.redirect);
   };
   handleChange = (event) => {
     this.setState({
@@ -56,10 +59,54 @@ class RegisterForm extends Component {
       UI: { loading },
     } = this.props;
     const { errors } = this.state;
+
     return (
       <form noValidate onSubmit={this.handleSubmit} className={classes.form}>
+        <Typography align="right" style={{ margin: "20px 0" }}>
+          Already have an account?{" "}
+          <Link to={"/login?to=" + encodeURIComponent(this.props.redirect)}>
+            Login here
+          </Link>
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              autoComplete="fname"
+              name="firstName"
+              variant="outlined"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
+              autoFocus
+              autoComplete="firstName"
+              className={classes.textField}
+              onChange={this.handleChange}
+              value={this.state.firstName}
+              error={Boolean(errors.firstName)}
+              helperText={errors.firstName}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              className={classes.textField}
+              onChange={this.handleChange}
+              value={this.state.lastName}
+              error={Boolean(errors.lastName)}
+              helperText={errors.lastName}
+            />
+          </Grid>
+        </Grid>
         <TextField
           fullWidth
+          required
           variant="outlined"
           id="email"
           name="email"
@@ -73,6 +120,7 @@ class RegisterForm extends Component {
         />
         <TextField
           fullWidth
+          required
           variant="outlined"
           id="password"
           name="password"
@@ -111,14 +159,11 @@ class RegisterForm extends Component {
           className={classes.button}
           disabled={loading}
         >
-          Signup
+          Sign up
           {loading && (
-            <CircularProgress size={20} className={classes.progress} />
+            <CircularProgress size={20} className={classes.circularProgress} />
           )}
         </Button>
-        <Typography align="right">
-          Already have an account? <Link to="/login">Login here</Link>
-        </Typography>
       </form>
     );
   }

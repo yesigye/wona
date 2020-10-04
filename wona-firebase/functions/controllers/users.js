@@ -32,8 +32,8 @@ exports.signup = (req, res) => {
   if (!valid) return res.status(400).json(errors);
 
   const noImg = "no-user-image.png";
-
   let token, userId;
+
   firebase
     .auth()
     .createUserWithEmailAndPassword(newUser.email, newUser.password)
@@ -52,6 +52,8 @@ exports.signup = (req, res) => {
       // Define profile data for new user
       const userCredentials = {
         email: newUser.email,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
         createdAt: new Date().toISOString(),
         avatar: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
         userId,

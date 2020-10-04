@@ -11,27 +11,35 @@ import {
 } from "../types";
 import axios from "axios";
 
-export const signupUser = (newUserData, history) => (dispatch) => {
+export const signupUser = (newUserData, history, redirect) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .post("/signup", newUserData)
     .then((res) => {
+      dispatch({ type: LOADING_USER });
       setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
-      history.push("/");
+      redirect !== undefined && redirect && history.push(redirect);
     })
     .catch((error) => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: {
-          type: "error",
-          message:
-            error.message === "Network Error"
-              ? "No internet connection"
-              : "Something went wrong. Try again later",
-        },
-      });
+      let payload = {};
+
+      if (error.message === "Network Error") {
+        // Catch network errors
+        payload.message = "No internet connection";
+      }
+      if (!(error.response == undefined)) {
+        // Catch errors from server
+        payload = error.response.data;
+      }
+
+      if (Object.keys(payload).length > 0) {
+        dispatch({
+          type: SET_ERRORS,
+          payload,
+        });
+      }
     });
 };
 
@@ -86,7 +94,7 @@ export const uploadPhoto = (formData) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const loginUser = (userData, history) => (dispatch) => {
+export const loginUser = (userData, history, redirect) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .post("/login", userData)
@@ -94,7 +102,7 @@ export const loginUser = (userData, history) => (dispatch) => {
       setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
-      history.push("/");
+      history.push(redirect ? redirect : "/");
     })
     .catch((error) => {
       dispatch({

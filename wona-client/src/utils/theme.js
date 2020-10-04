@@ -39,9 +39,12 @@ export default {
     loginErrorText: {
       color: "#f44336",
     },
-    progress: {
+    circularProgress: {
       bacground: "#fff",
       position: "absolute",
+      left: 0,
+      right: 0,
+      margin: "auto",
     },
     mt1: {
       marginTop: "0.25rem",

@@ -15,6 +15,9 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/userActions";
 
+// Utility functions
+import { getParams } from "../utils/urls";
+
 const styles = (theme) => ({ ...theme.custom });
 
 class Login extends Component {
@@ -35,7 +38,10 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
-    this.props.loginUser({ email, password }, this.props.history);
+    const urlParams = getParams(
+      this.props.location.pathname + this.props.location.search
+    );
+    this.props.loginUser({ email, password }, this.props.history, urlParams.to);
   };
   handleChange = (event) => {
     this.setState({
@@ -49,7 +55,6 @@ class Login extends Component {
       UI: { loading },
     } = this.props;
     const { errors } = this.state;
-    console.log(this.props.UI);
     return (
       <Grid container className={classes.form}>
         <Grid item sm />
@@ -104,9 +109,7 @@ class Login extends Component {
               )}
             </Button>
             <br />
-            <small>
-              Don't have an account? <Link to="/signup">Signup here</Link>
-            </small>
+            Don't have an account? <Link to="/signup">Signup here</Link>
           </form>
         </Grid>
         <Grid item sm />

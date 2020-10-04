@@ -128,13 +128,17 @@ export class doctor extends Component {
 
     // Extract date timestamp from url
     const { date } = getParams(this.props.location.search);
-    // const segments = slug.split("-");
-    console.log(date);
     if (date) {
+      // Set state to
+      // reflect the booking date
+      // display the next tab panel
+
+      // TODO: change this behaviour to relay on Redux
       this.setState({
         isDateSelected: true,
         urlDate: date,
         bookDisplayDate: dayjs.unix(date).format("h:mma dddd, MMM D"),
+        expanded: "panel2",
       });
     }
   }
@@ -177,9 +181,6 @@ export class doctor extends Component {
     return (
       <Grid container spacing={2}>
         <Grid item sm={7} xs={12}>
-          <Paper className={classes.content}>
-            <RegisterForm redirect={this.props.history}></RegisterForm>
-          </Paper>
           <Paper className={classes.content}>
             <Grid container spacing={2}>
               <Grid item sm={4} xs={4}>
@@ -301,7 +302,7 @@ export class doctor extends Component {
                   aria-label="Client"
                   control={<Checkbox />}
                   checked={user.authenticated}
-                  label="Client"
+                  label={user.authenticated ? "Client" : "Sign up to Continue"}
                 />
                 {user.authenticated && (
                   <Typography
@@ -315,11 +316,10 @@ export class doctor extends Component {
                   </Typography>
                 )}
               </AccordionSummary>
-              {!user.authenticated && (
+              <Divider className={classes.marginlessDivider}></Divider>
+              {!user.authenticated && !user.loading && (
                 <AccordionDetails>
-                  <Typography color="textSecondary">
-                    Sign up form if not logged in
-                  </Typography>
+                  <RegisterForm></RegisterForm>
                 </AccordionDetails>
               )}
             </Accordion>

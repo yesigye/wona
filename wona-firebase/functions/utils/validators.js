@@ -1,6 +1,6 @@
 /*jslint: es6 */
 const isEmpty = (string) => {
-  return string && string.trim() === "";
+  return string == null ? true : string.trim() === "";
 };
 
 const isEmail = (email) => {
@@ -20,8 +20,11 @@ exports.validateSignupData = (data) => {
   if (isEmpty(data.password)) {
     errors.password = "Password must not be empty";
   }
-  if (data.password !== data.confirmPassword) {
-    errors.confirmPassword = "Passwords must match";
+  if (isEmpty(data.firstName)) {
+    errors.firstName = "First name must not be empty";
+  }
+  if (isEmpty(data.lastName)) {
+    errors.lastName = "Last name must not be empty";
   }
 
   return {

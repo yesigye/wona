@@ -14,7 +14,7 @@ import Card from "@material-ui/core/Card";
 // Icons
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 // Components
-import TabPanel from "../components/TabPanel";
+import TabPanel from "./TabPanel";
 // Utility functions
 import theme from "../utils/theme";
 import {
@@ -22,7 +22,6 @@ import {
   militaryTimeToStandard,
   nextOpenSlot,
 } from "../utils/timeFunctions";
-import { getParams } from "../utils/urls";
 
 const styles = {
   header: {
@@ -55,24 +54,13 @@ const styles = {
   },
 };
 
-// TODO: Let the max number come from docotor settings
-// Show booking slots up to 10 days in future
-const maxSlotDaysShowing = 20;
-let bookDates = [];
-for (let i = 0; i < maxSlotDaysShowing; i++) {
-  bookDates.push(dayjs().add(i, "day"));
-}
-
 export class Slots extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      slotDateRange: bookDates,
-      showingSlotDay: 0,
-      showingDate: "",
-      dateTimestamp: "",
-    };
-  }
+  state = {
+    slotDateRange: [],
+    showingSlotDay: 0,
+    showingDate: "",
+    dateTimestamp: "",
+  };
 
   componentWillReceiveProps(nextProps) {
     // Update state from prop if not already updated
@@ -81,15 +69,24 @@ export class Slots extends Component {
       const dateDiff = dayjs.unix(nextProps.selectedDate).diff(Date(), "day");
       this.setState({
         dateTimestamp: nextProps.selectedDate,
-        showingSlotDay: dateDiff ? dateDiff + 1 : 0,
+        showingSlotDay: dateDiff + 1,
       });
     }
+    // TODO: Let the max number come from docotor settings
+    // Show booking slots up to 20 days in future
+    const maxSlotDaysShowing = 20;
+    let bookDates = [];
+    for (let i = 0; i < maxSlotDaysShowing; i++) {
+      bookDates.push(dayjs().add(i, "day"));
+    }
+    this.setState({ slotDateRange: bookDates });
   }
 
   handleTabChange = (e, num) => {
     this.setState({ showingSlotDay: num });
   };
   handleButtonChange = (date) => {
+    if (date === undefined) return false;
     this.setState({
       showingDate: date,
       dateTimestamp: "" + dayjs(date).unix(),
@@ -124,10 +121,11 @@ export class Slots extends Component {
             size="small"
             variant={selected ? "contained" : "outlined"}
             color="secondary"
-            onClick={this.handleButtonChange.bind(
-              null,
-              slotDate.format("YYYY-MM-DD") + " " + time
-            )}
+            onClick={() =>
+              this.handleButtonChange(
+                slotDate.format("YYYY-MM-DD") + " " + time
+              )
+            }
           >
             {militaryTimeToStandard(time)}
           </Button>

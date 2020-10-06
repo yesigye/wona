@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { uploadPhoto } from "../redux/actions/userActions";
 
 // Components
-import EditUserDetails from "../components/EditUserDetails";
+import Signup from "../components/signup";
 
 // Material UI
 import Grid from "@material-ui/core/Grid";
@@ -121,8 +121,7 @@ export class profile extends Component {
             <Button onClick={this.handleClose} variant="contained">
               Sign out
             </Button>
-
-            <EditUserDetails></EditUserDetails>
+            <Signup />
           </Paper>
         </Grid>
       </Grid>

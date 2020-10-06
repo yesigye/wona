@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../redux/actions/userActions";
 
 // Components
-import EditUserDetails from "../components/EditUserDetails";
+import Signup from "../components/signup";
 
 // Material UI
 import IconButton from "@material-ui/core/IconButton";
@@ -113,7 +113,7 @@ export class Profile extends Component {
               Joined {dayjs(createdAt).format("MMM YYYY")}
             </Typography>
             <div onClick={this.handleClose}>
-              <EditUserDetails />
+              <Signup />
             </div>
             <Divider light />
             <Button onClick={this.handleSignout} variant="contained">

@@ -28,8 +28,8 @@ import StarIcon from "@material-ui/icons/Stars";
 import { connect } from "react-redux";
 import { getDoctor } from "../redux/actions/dataActions";
 // Components
-import Slots from "../components/Slots";
-import RegisterForm from "../components/ReigsterForm";
+import Slots from "../components/slots";
+import Signup from "../components/signup";
 // Utility functions
 import { getParams } from "../utils/urls";
 
@@ -192,7 +192,7 @@ export class doctor extends Component {
               </Grid>
               <Grid item sm={8} xs={8}>
                 <Typography variant="h5">
-                  Dr. {doctor.firstName + " " + doctor.lastName}
+                  Dr. {doctor?.firstName + " " + doctor?.lastName}
                 </Typography>
                 <div color="textSecondary">{doctor.department}</div>
                 <Typography>{doctor.location?.address}</Typography>
@@ -319,7 +319,7 @@ export class doctor extends Component {
               <Divider className={classes.marginlessDivider}></Divider>
               {!user.authenticated && !user.loading && (
                 <AccordionDetails>
-                  <RegisterForm></RegisterForm>
+                  <Signup />
                 </AccordionDetails>
               )}
             </Accordion>

@@ -42,7 +42,7 @@ const styles = (theme) => {
   return customTheme;
 };
 
-class EditUserDetails extends Component {
+class Signup extends Component {
   state = {
     firstName: "",
     lastName: "",
@@ -175,12 +175,12 @@ const mapStateToProps = (state) => ({
   UI: state.UI,
 });
 
-EditUserDetails.propTypes = {
+Signup.propTypes = {
   user: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   editUserDetails: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { editUserDetails })(
-  withStyles(styles)(EditUserDetails)
+  withStyles(styles)(Signup)
 );

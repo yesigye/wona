@@ -7,10 +7,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
 
 // Components
-import Profile from "../components/Profile";
+import Profile from "./Profile";
 
 // Theme. spread is from "../utils.theme"
 import logo from "../images/logo.png";
@@ -35,7 +34,7 @@ export class Navbar extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <AppBar container elevation={0} className={classes.appBar}>
+      <AppBar elevation={0} className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <img src={logo} className={classes.logo} alt="logo" />

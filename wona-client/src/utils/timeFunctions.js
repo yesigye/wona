@@ -97,4 +97,6 @@ export function nextOpenSlot(slots, date) {
     }
     counter += 1;
   }
+
+  return null;
 }

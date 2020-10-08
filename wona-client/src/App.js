@@ -14,7 +14,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./utils/theme";
 
 // Components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import AuthRoute from "./components/AuthRoute";
 
 // Pages

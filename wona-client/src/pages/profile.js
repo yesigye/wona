@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link } from "react-router-dom";
 
 // Redux
 import { connect } from "react-redux";
@@ -71,7 +70,6 @@ export class profile extends Component {
       user: {
         credentials: { firstName, lastName, createdAt, avatar },
         loading,
-        authenticated,
       },
     } = this.props;
 

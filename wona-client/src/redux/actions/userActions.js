@@ -29,7 +29,7 @@ export const signupUser = (newUserData, history, redirect) => (dispatch) => {
         // Catch network errors
         payload.message = "No internet connection";
       }
-      if (!(error.response == undefined)) {
+      if (!(error.response === undefined)) {
         // Catch errors from server
         payload = error.response.data;
       }

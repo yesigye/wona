@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-// MUI stuff
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-
 export class TabPanel extends Component {
   render() {
     const { children, value, index, ...other } = this.props;

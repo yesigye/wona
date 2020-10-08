@@ -23,15 +23,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 //Icons
 import BugReportIcon from "@material-ui/icons/BugReport";
-import StarIcon from "@material-ui/icons/Stars";
 // Redux
 import { connect } from "react-redux";
 import { getDoctor } from "../redux/actions/dataActions";
 // Components
 import Slots from "../components/slots";
 import Signup from "../components/signup";
+import MtnMomoButton from "../components/mtnMomoButton";
 // Utility functions
 import { getParams } from "../utils/urls";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const moreStyles = {
   card: {
@@ -57,11 +58,6 @@ const moreStyles = {
   },
   marginlessDivider: {
     margin: "0 !important",
-  },
-  payBlock: {
-    textAlign: "center",
-    padding: "1.5rem 0.5rem",
-    marginBottom: 20,
   },
 };
 const styles = (theme) => ({
@@ -92,12 +88,8 @@ const styles = (theme) => ({
   displayBlock: {
     display: "block",
   },
-  payMtn: {
-    ...moreStyles.payBlock,
-    backgroundColor: "#ffc107",
-  },
   payAirtel: {
-    ...moreStyles.payBlock,
+    ...theme.custom.payBlock,
     backgroundColor: "#dc3545",
     color: "#ffffff",
   },
@@ -106,14 +98,11 @@ const styles = (theme) => ({
 const appointment = {};
 
 export class doctor extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: "panel1",
-      bookDisplayDate: "",
-      isDateSelected: false,
-    };
-  }
+  state = {
+    expanded: "panel1",
+    bookDisplayDate: "",
+    isDateSelected: false,
+  };
 
   componentDidMount() {
     const { doctors, doctor } = this.props.data;
@@ -133,7 +122,7 @@ export class doctor extends Component {
       // reflect the booking date
       // display the next tab panel
 
-      // TODO: change this behaviour to relay on Redux
+      // TODO: change the date to relay on Redux not URI
       this.setState({
         isDateSelected: true,
         urlDate: date,
@@ -143,7 +132,7 @@ export class doctor extends Component {
     }
   }
 
-  handleBooking = (date, event) => {
+  handleBooking = (date) => {
     this.setState({
       isDateSelected: true,
       bookDisplayDate: dayjs(date).format("h:mma dddd, MMM D"),
@@ -170,7 +159,7 @@ export class doctor extends Component {
     const {
       classes,
       user,
-      data: { doctor, loading },
+      data: { doctor },
     } = this.props;
 
     dayjs.extend(relativeTime);
@@ -186,14 +175,19 @@ export class doctor extends Component {
               <Grid item sm={4} xs={4}>
                 <img
                   src={avatar}
+                  alt={doctor.firstName}
                   title={doctor.firstName}
                   className={classes.image}
                 />
               </Grid>
               <Grid item sm={8} xs={8}>
-                <Typography variant="h5">
-                  Dr. {doctor?.firstName + " " + doctor?.lastName}
-                </Typography>
+                {doctor?.firstName ? (
+                  <Typography variant="h5">
+                    Dr. {doctor?.firstName + " " + doctor?.lastName}
+                  </Typography>
+                ) : (
+                  <Skeleton variant="text"></Skeleton>
+                )}
                 <div color="textSecondary">{doctor.department}</div>
                 <Typography>{doctor.location?.address}</Typography>
                 <Button variant="contained" color="primary" className="mt2">
@@ -203,7 +197,7 @@ export class doctor extends Component {
             </Grid>
           </Paper>
 
-          <Paper className={["mt2", classes.content]}>
+          <Paper className={classes.content} style={{ margin: "20px 0" }}>
             <Typography variant="body1">
               <b>Experience</b>
             </Typography>
@@ -215,38 +209,38 @@ export class doctor extends Component {
               <BugReportIcon fontSize="small" className="icon-preText" />
               Specializes In
             </Typography>
-            <Typography color="textSecondary">
-              <ul>
-                {doctor.specialities?.map((speciality) => (
-                  <li>{speciality}</li>
+            <ul>
+              <Typography color="textSecondary">
+                {doctor.specialities?.map((speciality, i) => (
+                  <li key={i}>{speciality}</li>
                 ))}
-              </ul>
-            </Typography>
+              </Typography>
+            </ul>
             <Typography variant="body1">
               <BugReportIcon fontSize="small" className="icon-preText" />
               Diseases Treated
             </Typography>
-            <Typography color="textSecondary">
-              <ul>
-                {doctor.diseases?.map((disease) => (
-                  <li>{disease}</li>
+            <ul>
+              <Typography color="textSecondary">
+                {doctor.diseases?.map((disease, i) => (
+                  <li key={i}>{disease}</li>
                 ))}
-              </ul>
-            </Typography>
+              </Typography>
+            </ul>
             <Typography variant="body1">
               <BugReportIcon fontSize="small" className="icon-preText" />
               Training
             </Typography>
-            <Typography color="textSecondary">
-              <ul>
-                {doctor.qualifications?.map((qualification) => (
-                  <li>
+            <ul>
+              <Typography color="textSecondary">
+                {doctor.qualifications?.map((qualification, i) => (
+                  <li key={i}>
                     {qualification.honor} at {qualification.institute},{" "}
                     {qualification.year}
                   </li>
                 ))}
-              </ul>
-            </Typography>
+              </Typography>
+            </ul>
           </Paper>
         </Grid>
         <Grid item sm={5} xs={12}>
@@ -354,9 +348,7 @@ export class doctor extends Component {
                 <Typography variant="h6">Mobile Money</Typography>
                 <Grid container spacing={2}>
                   <Grid item sm={6} xs={6}>
-                    <Paper className={classes.payMtn}>
-                      <Typography variant="body1">MTN</Typography>
-                    </Paper>
+                    <MtnMomoButton />
                   </Grid>
                   <Grid item sm={6} xs={6}>
                     <Paper className={classes.payAirtel}>

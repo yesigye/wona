@@ -55,5 +55,10 @@ export default {
     mt3: {
       marginTop: "2rem",
     },
+    payBlock: {
+      textAlign: "center",
+      padding: "1.5rem 0.5rem",
+      marginBottom: 20,
+    },
   },
 };

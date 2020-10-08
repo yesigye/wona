@@ -1,186 +1,173 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
-
-// Redux
+import propTypes from "prop-types";
+// Redux stuff
 import { connect } from "react-redux";
-import { editUserDetails } from "../redux/actions/userActions";
-
+import { signupUser } from "../redux/actions/userActions";
 // Material UI
-import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Alert from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
+import Button from "@material-ui/core/Button";
+import { CircularProgress } from "@material-ui/core";
+// Utility functions
+import { getParams } from "../utils/urls";
 
-const styles = (theme) => {
-  const customTheme = { ...theme.custom };
-  customTheme.input = {
-    margin: theme.spacing(1),
-  };
-  customTheme.errorText = {
-    color: "#f44336",
-    margin: "auto",
-  };
-  customTheme.progress = {
-    position: "absolute",
-    width: 20,
-    height: 20,
-    left: 0,
-    top: 0,
-    bottom: 0,
-    right: 0,
-    margin: "auto",
-    color: "#fff",
-  };
-
-  return customTheme;
-};
+const styles = (theme) => ({
+  ...theme.custom,
+  button: {
+    ...theme.custom.button,
+    display: "block",
+    marginBottom: 20,
+  },
+});
 
 class Signup extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    open: false,
-    finished: false,
-  };
-
-  mapUserDetailsToState = (credentials) => {
-    this.setState({
-      firstName: credentials.firstName ? credentials.firstName : "",
-      lastName: credentials.lastName ? credentials.lastName : "",
-    });
-  };
-
-  componentDidMount() {
-    const { credentials } = this.props.user;
-    this.mapUserDetailsToState(credentials);
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      errors: {},
+    };
   }
 
-  // Event handlers
-  handleOpen = () => {
-    this.setState({ open: true });
-    this.mapUserDetailsToState(this.props.user.credentials);
+  // Localize Redux state errors
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({ loading: true });
+    const { email, password, firstName, lastName } = this.state;
+    const newUser = { email, password, firstName, lastName };
+    this.props.signupUser(newUser, this.props.history, this.props.redirect);
   };
-
-  handleClose = () => this.setState({ open: false });
-
-  handleCloseAlert = () => this.setState({ finished: false });
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
-  handleSubmit = (event) => {
-    const { credentials: oldDetails } = this.props.user;
-    const newDetails = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-    };
-    if (
-      newDetails.firstName === oldDetails.firstName &&
-      newDetails.lastName === oldDetails.lastName
-    ) {
-      // Nothing has changed.
-      return false;
-    }
-
-    this.props.editUserDetails(newDetails).then((res) => {
-      this.setState({ finished: true });
-    });
-  };
-
   render() {
     const {
       classes,
-      user: { loading },
-      UI: { errors, alerts },
+      UI: { loading },
     } = this.props;
+    const { errors } = this.state;
 
     return (
-      <div>
-        <Button variant="outlined" color="primary" onClick={this.handleOpen}>
-          Edit Profile
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Personal info</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Basic information about you. This is visible to other people using
-              Our services
-            </DialogContentText>
+      <form noValidate onSubmit={this.handleSubmit} className={classes.form}>
+        <Typography align="right" style={{ margin: "20px 0" }}>
+          Already have an account?{" "}
+          <Link to={"/login?to=" + encodeURIComponent(this.props.redirect)}>
+            Login here
+          </Link>
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
             <TextField
+              autoComplete="fname"
               name="firstName"
+              variant="outlined"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
               autoFocus
-              label="First name"
-              type="text"
-              defaultValue={this.state.firstName}
+              autoComplete="firstName"
+              className={classes.textField}
               onChange={this.handleChange}
-              className={classes.input}
-              fullWidth
+              value={this.state.firstName}
+              error={Boolean(errors.firstName)}
+              helperText={errors.firstName}
             />
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <TextField
-              name="lastName"
-              label="Last name"
-              type="text"
-              defaultValue={this.state.lastName}
-              onChange={this.handleChange}
-              className={classes.input}
+              variant="outlined"
+              required
               fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              className={classes.textField}
+              onChange={this.handleChange}
+              value={this.state.lastName}
+              error={Boolean(errors.lastName)}
+              helperText={errors.lastName}
             />
-          </DialogContent>
-          {this.state.finished && alerts && (
-            <Snackbar
-              open={this.state.finished}
-              autoHideDuration={3000}
-              onClose={this.handleCloseAlert}
-              message="hello"
-            >
-              <Alert variant="filled" severity={alerts.type}>
-                {alerts.message}
-              </Alert>
-            </Snackbar>
+          </Grid>
+        </Grid>
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          id="email"
+          name="email"
+          type="email"
+          label="Email"
+          value={this.state.email}
+          onChange={this.handleChange}
+          className={classes.textField}
+          helperText={errors.email}
+          error={Boolean(errors.email)}
+        />
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          id="password"
+          name="password"
+          type="password"
+          label="Password"
+          value={this.state.password}
+          onChange={this.handleChange}
+          className={classes.textField}
+          helperText={errors.password}
+          error={Boolean(errors.password)}
+        />
+        {errors.message && (
+          <Typography variant="body2" className={classes.loginErrorText}>
+            {errors.message}
+          </Typography>
+        )}
+        <Button
+          fullWidth
+          size="large"
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          disabled={loading}
+        >
+          Sign up
+          {loading && (
+            <CircularProgress size={20} className={classes.circularProgress} />
           )}
-          <DialogActions>
-            <Button onClick={this.handleClose} color="secondary">
-              Cancel
-            </Button>
-            <Button
-              onClick={this.handleSubmit}
-              color="primary"
-              disabled={loading}
-            >
-              {loading ? <CircularProgress size={20} /> : "Save"}
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+        </Button>
+      </form>
     );
   }
 }
+
+Signup.propTypes = {
+  classes: propTypes.object.isRequired,
+  user: propTypes.object.isRequired,
+  UI: propTypes.object.isRequired,
+  signupUser: propTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   user: state.user,
   UI: state.UI,
 });
 
-Signup.propTypes = {
-  user: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-  editUserDetails: PropTypes.func.isRequired,
-};
-
-export default connect(mapStateToProps, { editUserDetails })(
+export default connect(mapStateToProps, { signupUser })(
   withStyles(styles)(Signup)
 );

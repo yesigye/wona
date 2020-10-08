@@ -12,11 +12,9 @@ import Signup from "../components/signup";
 
 // Material UI
 import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
-import Skeleton from "@material-ui/lab/Skeleton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
@@ -69,12 +67,11 @@ export class Profile extends Component {
       classes,
       user: {
         credentials: { firstName, lastName, createdAt, avatar },
-        loading,
         authenticated,
       },
     } = this.props;
 
-    const { auth, anchorEl } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return authenticated ? (

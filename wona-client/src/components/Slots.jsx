@@ -67,9 +67,10 @@ export class Slots extends Component {
     if (nextProps.selectedDate && !this.state.dateTimestamp) {
       // Difference between today and the booking date(sent via props)
       const dateDiff = dayjs.unix(nextProps.selectedDate).diff(Date(), "day");
+      console.log(dateDiff);
       this.setState({
         dateTimestamp: nextProps.selectedDate,
-        showingSlotDay: dateDiff + 1,
+        showingSlotDay: dateDiff ? dateDiff + 1 : dateDiff,
       });
     }
     // TODO: Let the max number come from docotor settings
@@ -98,7 +99,7 @@ export class Slots extends Component {
     dayjs.extend(relativeTime);
     dayjs.extend(weekday);
 
-    const { classes, doctor, selectedDate } = this.props;
+    const { classes, doctor } = this.props;
     const { showingSlotDay, slotDateRange } = this.state;
 
     let doctorSlots = formatTimeSlots(
@@ -110,10 +111,8 @@ export class Slots extends Component {
     const renderTimeHtml = (time, slotDate) => {
       const formatedDate = slotDate.format("YYYY-MM-DD") + " " + time;
       const unixTime = "" + dayjs(formatedDate).unix();
-
-      // const selected =
-      //   formatedDate === this.state.showingDate || selectedDate === unixTime;
       const selected = this.state.dateTimestamp === unixTime;
+
       return (
         <Grid item sm={3} xs={4} key={time}>
           <Button

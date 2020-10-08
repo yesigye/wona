@@ -17,7 +17,7 @@ export class doctors extends Component {
     const { doctors, loading } = this.props.data;
     let recentDoctorsMarkup = !loading ? (
       doctors.map((doctor) => (
-        <Grid item sm={6} xs={12}>
+        <Grid item sm={6} xs={12} key={doctor.doctorId}>
           <Doctor doctor={doctor} key={doctor.doctorId} />
         </Grid>
       ))

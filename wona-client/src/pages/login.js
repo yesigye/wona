@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import propTypes from "prop-types";
 import Applogo from "../images/logo.png";
-import Link from "react-router-dom/Link";
+import { Link } from "react-router-dom";
 
 // Material UI
 import Grid from "@material-ui/core/Grid";

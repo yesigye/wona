@@ -30,6 +30,7 @@ import { getDoctor } from "../redux/actions/dataActions";
 import Slots from "../components/slots";
 import Signup from "../components/signup";
 import MtnMomoButton from "../components/mtnMomoButton";
+import CreditCardButton from "../components/creditCardButton";
 // Utility functions
 import { getParams } from "../utils/urls";
 import Skeleton from "@material-ui/lab/Skeleton";
@@ -169,6 +170,9 @@ export class doctor extends Component {
 
     return (
       <Grid container spacing={2}>
+        <Grid item sm={6} xs={6}>
+          <CreditCardButton />
+        </Grid>
         <Grid item sm={7} xs={12}>
           <Paper className={classes.content}>
             <Grid container spacing={2}>

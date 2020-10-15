@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // Redux
 import { connect } from "react-redux";
-import { editUserDetails } from "../redux/actions/userActions";
+import { editUserDetails } from "../../../redux/actions/userActions";
 
 // Material UI
 import Grid from "@material-ui/core/Grid";
@@ -20,8 +20,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 // Card logos
-import logoVisa from "../components/payment/card/visa.svg"
-import logoMastercard from "../components/payment/card/mastercard.svg"
+import logoVisa from "./visa.svg"
+import logoMastercard from "./mastercard.svg"
 
 const styles = (theme) => ({
   ...theme.custom,

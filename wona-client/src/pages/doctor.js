@@ -29,8 +29,8 @@ import { getDoctor } from "../redux/actions/dataActions";
 // Components
 import Slots from "../components/slots";
 import Signup from "../components/signup";
-import MtnMomoButton from "../components/mtnMomoButton";
-import CreditCardButton from "../components/creditCardButton";
+import MtnMomoButton from "../components/payment/mtnMomoButton";
+import CreditCardButton from "../components/payment/card/creditCardButton";
 // Utility functions
 import { getParams } from "../utils/urls";
 import Skeleton from "@material-ui/lab/Skeleton";

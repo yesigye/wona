@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import propTypes from "prop-types";
-import avatar from "../images/user.jpg";
 
 // Day Js
 import dayjs from "dayjs";
@@ -28,7 +27,7 @@ import { connect } from "react-redux";
 import { getDoctor } from "../redux/actions/dataActions";
 // Components
 import Slots from "../components/slots";
-import Signup from "../components/signup";
+import SignupForm from "../components/signupForm";
 import MtnMomoButton from "../components/payment/mtnMomoButton";
 import CreditCardButton from "../components/payment/card/creditCardButton";
 // Utility functions
@@ -170,15 +169,12 @@ export class doctor extends Component {
 
     return (
       <Grid container spacing={2}>
-        <Grid item sm={6} xs={6}>
-          <CreditCardButton />
-        </Grid>
         <Grid item sm={7} xs={12}>
           <Paper className={classes.content}>
             <Grid container spacing={2}>
               <Grid item sm={4} xs={4}>
                 <img
-                  src={avatar}
+                  src="/images/user.png"
                   alt={doctor.firstName}
                   title={doctor.firstName}
                   className={classes.image}
@@ -317,7 +313,7 @@ export class doctor extends Component {
               <Divider className={classes.marginlessDivider}></Divider>
               {!user.authenticated && !user.loading && (
                 <AccordionDetails>
-                  <Signup />
+                  <SignupForm />
                 </AccordionDetails>
               )}
             </Accordion>
@@ -341,7 +337,10 @@ export class doctor extends Component {
                   className={classes.CheckboxSecodaryHeading}
                   color="primary"
                 >
-                  USD 20
+                  USD {('20'.toLocaleString('en-us', {
+                    style: "currency",
+                    currency: "USD",
+                  }))}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={classes.displayBlock}>
@@ -349,15 +348,17 @@ export class doctor extends Component {
                   SELECT A PAYMENT OPTION
                 </Typography>
                 <Divider></Divider>
-                <Typography variant="h6">Mobile Money</Typography>
                 <Grid container spacing={2}>
-                  <Grid item sm={6} xs={6}>
+                  <Grid item xs={4}>
                     <MtnMomoButton />
                   </Grid>
-                  <Grid item sm={6} xs={6}>
+                  <Grid item xs={4}>
                     <Paper className={classes.payAirtel}>
                       <Typography variant="body1">AIRTEL</Typography>
                     </Paper>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <CreditCardButton />
                   </Grid>
                 </Grid>
               </AccordionDetails>

@@ -31,7 +31,7 @@ const styles = (theme) => ({
   },
 });
 
-export class Navbar extends Component {
+export class DoctorFilters extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -68,4 +68,4 @@ export class Navbar extends Component {
   }
 }
 
-export default withStyles(styles)(Navbar);
+export default withStyles(styles)(DoctorFilters);

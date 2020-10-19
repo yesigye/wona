@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 import propTypes from "prop-types";
 // Redux stuff
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 // Material UI
+import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -21,9 +21,13 @@ const styles = (theme) => ({
     display: "block",
     marginBottom: 20,
   },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(2),
+  },
 });
 
-class Signup extends Component {
+class SignupForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -60,14 +64,12 @@ class Signup extends Component {
     } = this.props;
     const { errors } = this.state;
 
+    const redirect = this.props.redirect === undefined ?
+                    '/login' :
+                    "/login?to=" + encodeURIComponent(this.props.redirect);
+
     return (
       <form noValidate onSubmit={this.handleSubmit} className={classes.form}>
-        <Typography align="right" style={{ margin: "20px 0" }}>
-          Already have an account?{" "}
-          <Link to={"/login?to=" + encodeURIComponent(this.props.redirect)}>
-            Login here
-          </Link>
-        </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -151,12 +153,21 @@ class Signup extends Component {
             <CircularProgress size={20} className={classes.circularProgress} />
           )}
         </Button>
+        <Grid container>
+          <Grid item xs>
+          </Grid>
+          <Grid item>
+            <Link href={redirect} variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Grid>
       </form>
     );
   }
 }
 
-Signup.propTypes = {
+SignupForm.propTypes = {
   classes: propTypes.object.isRequired,
   user: propTypes.object.isRequired,
   UI: propTypes.object.isRequired,
@@ -169,5 +180,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { signupUser })(
-  withStyles(styles)(Signup)
+  withStyles(styles)(SignupForm)
 );

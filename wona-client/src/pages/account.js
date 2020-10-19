@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
 
 // Components
-import Signup from "../components/signup";
+import SignupForm from "../components/signupForm";
 
 // Material UI
 import Paper from "@material-ui/core/Paper";
@@ -180,7 +180,7 @@ class account extends Component {
           </Typography>
 
           <Paper variant="outlined">
-            <Signup />
+            <SignupForm />
           </Paper>
         </main>
       </div>

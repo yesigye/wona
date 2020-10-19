@@ -18,7 +18,6 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
 // Card logos
 import logoVisa from "./visa.svg"
 import logoMastercard from "./mastercard.svg"
@@ -26,12 +25,8 @@ import logoMastercard from "./mastercard.svg"
 const styles = (theme) => ({
   ...theme.custom,
   creditCard: {
-    transform: "scale(0.78)",
-    transition: "width 1.5s",
-    width: 435,
-    height: 240,
     borderRadius: 10,
-    backgroundColor: "#5d6874",
+    backgroundColor: "#cccccc",
     padding: 20,
   },
   input: {
@@ -57,18 +52,21 @@ const styles = (theme) => ({
   },
   payCard: {
     ...theme.custom.payBlock,
-    backgroundColor: "#ffc107",
+    backgroundColor: "#949494",
     "&:hover": {
-      backgroundColor: "#e0a800",
-      borderColor: "#d39e00",
+      backgroundColor: "#cccccc",
+      borderColor: "#cccccc",
       boxShadow: "none",
     },
   },
 });
 
-const cardsImages = {
-  visa: "https://placehold.it/120x60.png?text=Visa",
-  mastercard: "https://placehold.it/120x60.png?text=MasterCard",
+const cardDefault = {
+  name: '',
+  date: '',
+  image: "https://placehold.it/120x60.png?text=Card",
+  numbers: [[], [], [], []],
+  background: {}
 };
 const cardsBg = {
   visa: {
@@ -78,62 +76,6 @@ const cardsBg = {
     background: "linear-gradient(135deg, #65799b 0%, #5e2563 100%)",
   },
 };
-const countries = [
-  {
-    code: "US",
-    currency: "USD",
-    currencyName: "",
-    country: "United States",
-  },
-  {
-    code: "NG",
-    currency: "NGN",
-    currencyName: "",
-    country: "Nigeria",
-  },
-  {
-    code: "KE",
-    currency: "KES",
-    currencyName: "",
-    country: "Kenya",
-  },
-  {
-    code: "UG",
-    currency: "UGX",
-    currencyName: "",
-    country: "Uganda",
-  },
-  {
-    code: "RW",
-    currency: "RWF",
-    currencyName: "",
-    country: "Rwanda",
-  },
-  {
-    code: "TZ",
-    currency: "TZS",
-    currencyName: "",
-    country: "Tanzania",
-  },
-  {
-    code: "ZA",
-    currency: "ZAR",
-    currencyName: "",
-    country: "South Africa",
-  },
-  {
-    code: "CM",
-    currency: "XAF",
-    currencyName: "",
-    country: "Cameroon",
-  },
-  {
-    code: "GH",
-    currency: "GHS",
-    currencyName: "",
-    country: "Ghana",
-  },
-];
 
 class creditCardButton extends Component {
   state = {
@@ -142,11 +84,7 @@ class creditCardButton extends Component {
     open: false,
     finished: false,
     errors: {},
-    card: {
-      image: "https://placehold.it/120x60.png?text=Card",
-      numbers: [[], [], [], []],
-      background: {}
-    },
+    card: {...cardDefault}
   };
 
   mapUserDetailsToState = (credentials) => {
@@ -160,77 +98,10 @@ class creditCardButton extends Component {
     this.mapUserDetailsToState(credentials);
   }
 
-  // Event handlers
-  handleOpen = () => {
-    this.setState({ open: true });
-    this.mapUserDetailsToState(this.props.user.credentials);
-  };
-
-  handleClose = () => this.setState({ open: false });
-
-  handleCloseAlert = () => this.setState({ finished: false });
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    console.log("process payment");
-  };
-
-  // Card Functions
-
-  // Announce total. *accessibility*
-  billHype = () => {
-    // const billDisplay = document.querySelector(".mdc-typography--headline4");
-    // if (!billDisplay) return;
-    // billDisplay.addEventListener("click", () => {
-    //   const billSpan = document.querySelector("[data-bill]");
-    //   if (
-    //     billSpan &&
-    //     appState.bill &&
-    //     appState.billFormatted &&
-    //     appState.billFormatted === billSpan.textContent
-    //   ) {
-    //     window.speechSynthesis.speak(
-    //       new SpeechSynthesisUtterance(appState.billFormatted)
-    //     );
-    //   }
-    // });
-  };
-
-  formatAsMoney = (amount, buyerCountry) => {
-    // // Find a given country in the array of countries
-    // const country = countries.find((cty) => cty.country === buyerCountry);
-    // if (country === undefined) {
-    //   // Set default currency format values.
-    //   country.code = "US";
-    //   country.currency = "USD";
-    // }
-    // // Format bill as a locale currency
-    // return amount.toLocaleString(`en-${country.code}`, {
-    //   style: "currency",
-    //   currency: country.currency,
-    // });
-  };
-
-  flagIfInvalid = (field, isValid) => {
-    // Used tenary operator for clean if else code
-    isValid
-      ? field.classList.remove("is-invalid")
-      : field.classList.add("is-invalid");
-  };
-
-  expiryDateFormatIsValid = (field) => {
-    // Create date object using given field value as parameter
-    const date = new Date(field.value);
-
-    // Retrun false when an improper date object is created
-    return isNaN(date.getTime()) ? false : true;
-  };
-
+  /**
+  * Detect where credit card is a visa or mastercard.
+  * @param {Array} first4Digits - First 4 digits of credit card.
+  */
   detectCardType = (first4Digits) => {
     const card = this.state.card;
     
@@ -245,95 +116,10 @@ class creditCardButton extends Component {
     }
   };
 
-  // Custom function to check for future dates
-  isDateInFuture = (field) => {
-    const date = new Date();
-    // Split the month & year parts into an array
-    let arr = field.value.split("/");
-    // Change a 2 to a 4 digit year using a 50 year offset
-    arr[1] = (arr[1] > 50 ? "19" : "20") + arr[1];
-    // Set a proper fully year and month date
-    date.setFullYear(arr[1], arr[0]);
-
-    return new Date() < date;
-  };
-
-  validateCardExpiryDate = () => {
-    const field = document.querySelector("[data-cc-info] input:last-child");
-    // delegate date format and future validation
-    if (this.expiryDateFormatIsValid(field) && this.isDateInFuture(field)) {
-      const errors = this.state.errors;
-      errors.date = true;
-      this.setState({ errors });
-      return true;
-    }
-
-    // By default, fail the validation
-    const errors = this.state.errors;
-    errors.date = false;
-    this.setState({ errors });
-    return false;
-  };
-
-  validateCardHolderName = () => {
-    // const field = document.querySelector("[data-cc-info] input:first-child");
-    // // Separate names by space
-    // const arr = field.value.split(" ");
-    // // Confirm 2 names, each at least characters
-    // if (arr.length === 2 && arr[0].length > 2 && arr[1].length > 2) {
-    //   flagIfInvalid(field, true);
-    //   return true;
-    // }
-    // // By default, fail the validation
-    // flagIfInvalid(field, false);
-    // return false;
-  };
-
-  validateCardNumber = () => {
-    // const cardDigits = document.querySelector("[data-cc-digits]");
-    // // flatted array of arrays to a single array and validate
-    // const isValidated = validateWithLuhn(appState.cardDigits.flat());
-    // if (isValidated) {
-    //   cardDigits.classList.remove("is-invalid");
-    //   return true;
-    // } else {
-    //   cardDigits.classList.add("is-invalid");
-    //   return false;
-    // }
-  };
-
-  validateWithLuhn = (digits) => {
-    // Refuse digits whose length is not 16
-    if (digits.length !== 16) {
-      return false;
-    }
-
-    // Refuse digits that are not indeed numbers
-    if (!digits.join("").match(/^[0-9]+$/)) {
-      return false;
-    }
-
-    // Type cast strings to integers
-    const casted = digits.map((x) => {
-      return parseInt(x, 10);
-    });
-    // From second to last, loop through every other digit
-    for (let i = casted.length - 2; i >= 0; i -= 2) {
-      const doubled = casted[i] * 2;
-      // replace digit with its double or
-      // the dobule - 9 for digits bigger that 9
-      casted[i] = doubled > 9 ? doubled - 9 : doubled;
-    }
-    // get the total of amount of digits
-    const sum = casted.reduce((a, b) => a + b, 0);
-
-    // return the divisibility by 10
-    return sum % 10 === 0 ? true : false;
-  };
-
-  /*
-  ** Returns the caret (cursor) position of the specified text field (oField).
-  ** Return value range is 0-oField.value.length.
+  /**
+  * Returns the caret (cursor) position of a text field.
+  * @param {Object} oField - DOM text field element.
+  * @returns {Int} iCaretPos - Cursor position.
   */
   getCursorPosition = (oField) => {
     // Initialize
@@ -358,22 +144,18 @@ class creditCardButton extends Component {
     return iCaretPos;
   }
 
-  /*
-  ** Advance cursor to the next input after current input limit has been met.
+  /**
+  * Move cursor to the next input after an input limit has been met.
+  * @param {Object} event - DOM event that triggered this function.
   */
   smartCursor = (event) => {
     const el = event.target;
     const id = Number(el.id.slice(-1));
     const nextId = el.id.substring(0, el.id.length - 1) + (id + 1);
-    
-    
-    if ([37,38,39,40].includes(event.keyCode)) {
-      // Dont apply to arrow keys
-      return;
-    }else if (el.value.length === el.maxLength && id < 4) {
-      // On reaching max chars, focus on next input if any.
+  
+    // On reaching max chars, focus on next input if any.
+    (el.value.length === el.maxLength && id < 4) &&
       document.getElementById(nextId).focus();
-    }
   };
   
   /**
@@ -386,6 +168,7 @@ class creditCardButton extends Component {
     const card = this.state.card;
     const numbers = this.state.card.numbers;
     const cursorPosition = this.getCursorPosition(event.target);
+    const allowedKeys = [37,38,39,40];
     
     if (el.value.length === el.maxLength) {
       // End of the char limit on input
@@ -400,26 +183,163 @@ class creditCardButton extends Component {
       this.setState({ card });
       return;
     }
+    
+    if (!allowedKeys.includes(event.keyCode)) {
+      // Disable non-integer key functionality and terminate.
+      if (!event.key.match(/^[0-9]+$/)) return event.preventDefault();
+  
+      // Replace a digit if there are 4 numbers already. 
+      const deleteCount = numbers[index].length === 4 ? 1 : 0;
+      // Insert typed digit using cursor position as index. 
+      numbers[index].splice(cursorPosition, deleteCount, event.key);
+      card.numbers = numbers;
+      this.setState({ card });
+  
+      setTimeout(() => {
+        if (index === 0 && cursorPosition === 0) {
+          // Detect card type after typing first char of first input
+          this.detectCardType(el.value);
+        }
+        // Delay digit masking to give user glimpse of what they type. 
+        // Mask every last letter with #.
+        if (index < 3) el.value = el.value.slice(0, -1) + "#";
+      }, 100);
+    }
+  };
 
-    // Disable functionality of keys that are not integers.
-    if (!event.key.match(/^[0-9]+$/)) return event.preventDefault();
+  /**
+  * Vaidate card name contains at least 2 names each over 2 letters.
+  * @param {Object} event - DOM event that triggered this function.
+  */
+  validateCardHolderName = (event) => {
+    const errors = this.state.errors;
+    const arr = event.target.value.split(" ");
+    
+    if(arr.length >= 2 && arr[0].length > 2 && arr[1].length > 2) {
+      errors.name = "";
+    }else {
+      errors.name = "Enter at least 2 names each over 2 letters.";
+    }
+    this.setState({ errors });
+  };
 
-    // Replace a digit if there are 4 numbers already. 
-    const deleteCount = numbers[index].length === 4 ? 1 : 0;
-    // Insert typed digit using cursor position as index. 
-    numbers[index].splice(cursorPosition, deleteCount, event.key);
-    card.numbers = numbers;
-    this.setState({ card });
+  /**
+  * Vaidate card expiry date.
+  * @param {Object} event - DOM event that triggered this function.
+  */
+  validateCardExpiryDate = (event) => {
+    const arr = event.target.value.split("/");
+    const date = new Date(event.target.value);
+    const today = new Date();
+    const errors = this.state.errors;
 
-    setTimeout(() => {
-      if (index === 0 && cursorPosition === 0) {
-        // Detect card type after typing first char of first input
-        this.detectCardType(el.value);
+    if(arr.length !== 2 && arr[0] !== 2 && arr[1] !== 2) {
+      // Date should have 2 chars each for month & year
+      errors.date = "Invalid date";
+    }else if(![...arr[0], ...arr[1]].join('').match(/^[0-9]+$/)) {
+      // Date should only have integers
+      errors.date = "Invalid date";
+    }else {
+      // Change a 2 to a 4 digit year using a 50 year offset
+      arr[1] = (arr[1] > 50 ? "19" : "20") + arr[1];
+      date.setFullYear(arr[1], arr[0], -1);
+  
+      if( ! date instanceof Date) {
+        errors.date = "Invalid date";
+      }else if(date.setHours(0, 0, 0, 0) <= today.setHours(0, 0, 0, 0)) {
+        errors.date = "Expired date";
+      } else {
+        errors.date = "";
       }
-      // Delay digit masking to give user glimpse of what they type. 
-      // Mask every last letter with #.
-      if (index < 3) el.value = el.value.slice(0, -1) + "#";
-    }, 100);
+    }
+    
+    this.setState({ errors });
+  };
+
+  /**
+  * Vaidate card number using Luhn algorithm.
+  * @returns {Boolean}
+  */
+  validateCardNumber = () => {
+    const numbers = this.state.card.numbers.flat();
+    const errors = this.state.errors;
+
+    if (numbers.length !== 16) {
+      errors.message = "Card number must be 16 numbers long.";
+      return false;
+    }
+    if (!numbers.join("").match(/^[0-9]+$/)) {
+      errors.message = "Card number can only contain integers.";
+      return false;
+    }
+
+    // Type cast card numbers to integers
+    const digits = numbers.map((x) => {
+      return parseInt(x, 10);
+    });
+    // From second to last, loop through every other digit
+    for (let i = digits.length - 2; i >= 0; i -= 2) {
+      const doubled = digits[i] * 2;
+      // replace digit with its double or
+      // the dobule - 9 for digits bigger that 9
+      digits[i] = doubled > 9 ? doubled - 9 : doubled;
+    }
+    const sum = digits.reduce((a, b) => a + b, 0);
+
+    if(sum % 10 === 0) {
+      errors.message = "";
+      return true;
+    } else {
+      errors.message = "This card number is invalid.";
+      return false;
+    }
+  };
+
+  handleSubmit = (event) => {
+    const card = this.state.card;
+    const errors = this.state.errors;
+    errors.numbers = false; 
+    
+    if(card.name.trim() === "") {
+      errors.name = "Enter the name on your card."; 
+    }
+    if(card.date.trim() === "") {
+      errors.date = "Enter date."; 
+    }
+    if(card.numbers.find(a => a.length !== 4)) {
+      // Check for missing digits in card number
+      errors.numbers = true;
+    } else {
+      if(!this.validateCardNumber() && !errors.numbers) {
+        errors.numbers = true;
+      } else {
+        console.log("processing payment")
+      }
+    }
+    
+
+    this.setState({ errors });
+  };
+
+  handleOpen = () => {
+    this.setState({ open: true });
+    this.mapUserDetailsToState(this.props.user.credentials);
+  };
+
+  handleClose = () => {
+    this.setState({
+      card: {...cardDefault},
+      errors: {},
+      open: false
+    })
+  };
+
+  handleCloseAlert = () => this.setState({ finished: false });
+
+  handleChange = (event) => {
+    const card = this.state.card;
+    card[event.target.name] = event.target.value;
+    this.setState({ card });
   };
 
   render() {
@@ -430,134 +350,12 @@ class creditCardButton extends Component {
     } = this.props;
     const { errors, card } = this.state;
 
+    console.log(errors.length)
+
     return (
       <div>
-        <div
-          style={card.background}
-          className={classes.creditCard}
-        >
-          <Typography align="right">
-            <img className={classes.cardImage} src={card.image} />
-          </Typography>
-          <Grid container spacing={2} className="mt2">
-            <Grid item xs={3}>
-              <TextField
-                required
-                fullWidth
-                variant="outlined"
-                color="secondary"
-                size="small"
-                id="digit1"
-                autoComplete={false}
-                autoFill={false}
-                onKeyUp={this.smartCursor}
-                onKeyDown={this.smartTyping}
-                value={this.state.digit1}
-                error={Boolean(errors.digit1)}
-                helperText={errors.digit1}
-                inputProps={{ maxLength: 4 }}
-                variant="filled"
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                required
-                fullWidth
-                variant="outlined"
-                color="secondary"
-                size="small"
-                id="digit2"
-                autoComplete={false}
-                autoFill={false}
-                onKeyUp={this.smartCursor}
-                onKeyDown={this.smartTyping}
-                value={this.state.digit2}
-                error={Boolean(errors.digit2)}
-                helperText={errors.digit2}
-                inputProps={{ maxLength: 4 }}
-                variant="filled"
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                required
-                fullWidth
-                variant="outlined"
-                color="secondary"
-                size="small"
-                id="digit3"
-                autoComplete={false}
-                autoFill={false}
-                onKeyUp={this.smartCursor}
-                onKeyDown={this.smartTyping}
-                value={this.state.digit3}
-                error={Boolean(errors.digit3)}
-                helperText={errors.digit3}
-                inputProps={{ maxLength: 4 }}
-                variant="filled"
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                required
-                fullWidth
-                variant="outlined"
-                color="secondary"
-                size="small"
-                id="digit4"
-                autoComplete={false}
-                autoFill={false}
-                onKeyUp={this.smartCursor}
-                onKeyDown={this.smartTyping}
-                value={this.state.digit4}
-                error={Boolean(errors.digit4)}
-                helperText={errors.digit4}
-                inputProps={{ maxLength: 4 }}
-                variant="filled"
-              />
-            </Grid>
-          </Grid>
-
-          <Grid container spacing={2} className="mt2">
-            <Grid item xs={9}>
-              <TextField
-                required
-                fullWidth
-                variant="filled"
-                label="Name on Card"
-                id="name"
-                autoComplete={false}
-                autoFill={false}
-                color="secondary"
-                size="small"
-                onBlur={this.validateHolderName}
-                value={this.state.name}
-                error={Boolean(errors.name)}
-                helperText={errors.name}
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                required
-                fullWidth
-                variant="filled"
-                id="date"
-                label="Date"
-                name="date"
-                autoComplete="date"
-                color="secondary"
-                size="small"
-                className={classes.textField}
-                onBlur={this.validateCardDate}
-                value={this.state.date}
-                error={Boolean(errors.date)}
-                helperText={errors.date}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <Button fullWidth className={classes.payMtn} onClick={this.handleOpen}>
-          <Typography variant="body1">MTN</Typography>
+        <Button fullWidth className={classes.payCard} onClick={this.handleOpen}>
+          <Typography variant="body1">Card</Typography>
         </Button>
         <Dialog
           open={this.state.open}
@@ -567,24 +365,128 @@ class creditCardButton extends Component {
           <DialogTitle id="card-pay-form">Authorize Payment</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please ensure you have your phone on you with sufficient balance
-              in your account. We'll send you a prompt, please enter your pin to
-              authorize payment.
+              Please provide your credit card details.
             </DialogContentText>
-            ..............................................................
+            <div style={card.background} className={classes.creditCard}>
+              <Typography align="right">
+                <img className={classes.cardImage} src={card.image} alt="" />
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                  <TextField
+                    required
+                    fullWidth
+                    variant="filled"
+                    color="secondary"
+                    size="small"
+                    id="digit1"
+                    autoComplete={false}
+                    onKeyUp={this.smartCursor}
+                    onKeyDown={this.smartTyping}
+                    value={this.state.digit1}
+                    inputProps={{ maxLength: 4 }}
+                    error={errors.numbers}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextField
+                    required
+                    fullWidth
+                    variant="filled"
+                    color="secondary"
+                    size="small"
+                    id="digit2"
+                    autoComplete={false}
+                    onKeyUp={this.smartCursor}
+                    onKeyDown={this.smartTyping}
+                    value={this.state.digit2}
+                    inputProps={{ maxLength: 4 }}
+                    error={errors.numbers}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextField
+                    required
+                    fullWidth
+                    variant="filled"
+                    color="secondary"
+                    size="small"
+                    id="digit3"
+                    autoComplete={false}
+                    onKeyUp={this.smartCursor}
+                    onKeyDown={this.smartTyping}
+                    value={this.state.digit3}
+                    inputProps={{ maxLength: 4 }}
+                    error={errors.numbers}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextField
+                    required
+                    fullWidth
+                    variant="filled"
+                    color="secondary"
+                    size="small"
+                    id="digit4"
+                    autoComplete={false}
+                    onKeyUp={this.smartCursor}
+                    onKeyDown={this.smartTyping}
+                    value={this.state.digit4}
+                    inputProps={{ maxLength: 4 }}
+                    error={errors.numbers}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={2} className="mt2">
+                <Grid item xs={9}>
+                  <TextField
+                    required
+                    fullWidth
+                    size="small"
+                    variant="filled"
+                    label="Name on Card"
+                    id="name"
+                    name="name"
+                    autoComplete={false}
+                    color="secondary"
+                    onChange={this.handleChange}
+                    onBlur={this.validateCardHolderName}
+                    value={this.state.card.name}
+                    error={Boolean(errors.name)}
+                    helperText={errors.name}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextField
+                    required
+                    fullWidth
+                    size="small"
+                    variant="filled"
+                    id="date"
+                    label="Date"
+                    placeholder="MM/YY"
+                    name="date"
+                    autoComplete="date"
+                    color="secondary"
+                    className={classes.textField}
+                    onChange={this.handleChange}
+                    onBlur={this.validateCardExpiryDate}
+                    value={this.state.card.date}
+                    error={Boolean(errors.date)}
+                    helperText={errors.date}
+                  />
+                </Grid>
+              </Grid>
+            </div>
+            <Typography align="center">
+              {errors.message && (
+                <Alert severity="error" variant="filled" className="mt2">
+                  {errors.message}
+                </Alert>
+              )}
+            </Typography>
           </DialogContent>
-          {this.state.finished && alerts && (
-            <Snackbar
-              open={this.state.finished}
-              autoHideDuration={3000}
-              onClose={this.handleCloseAlert}
-              message="hello"
-            >
-              <Alert variant="filled" severity={alerts.type}>
-                {alerts.message}
-              </Alert>
-            </Snackbar>
-          )}
+          
           <DialogActions>
             <Button
               variant="contained"
@@ -597,12 +499,12 @@ class creditCardButton extends Component {
               variant="contained"
               onClick={this.handleSubmit}
               color="primary"
-              disabled={loading}
+              disabled={loading || errors.length > 0}
             >
               {loading && (
                 <CircularProgress className="progress-center" size={20} />
               )}
-              Send prompt
+              Pay
             </Button>
           </DialogActions>
         </Dialog>

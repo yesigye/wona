@@ -22,25 +22,7 @@ export const signupUser = (newUserData, history, redirect) => (dispatch) => {
       dispatch({ type: CLEAR_ERRORS });
       redirect !== undefined && redirect && history.push(redirect);
     })
-    .catch((error) => {
-      let payload = {};
-
-      if (error.message === "Network Error") {
-        // Catch network errors
-        payload.message = "No internet connection";
-      }
-      if (!(error.response === undefined)) {
-        // Catch errors from server
-        payload = error.response.data;
-      }
-
-      if (Object.keys(payload).length > 0) {
-        dispatch({
-          type: SET_ERRORS,
-          payload,
-        });
-      }
-    });
+    .catch((error) => { setErrors(dispatch, error) });
 };
 
 export const getUserData = () => (dispatch) => {
@@ -104,18 +86,7 @@ export const loginUser = (userData, history, redirect) => (dispatch) => {
       dispatch({ type: CLEAR_ERRORS });
       history.push(redirect ? redirect : "/");
     })
-    .catch((error) => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: {
-          type: "error",
-          message:
-            error.message === "Network Error"
-              ? "No internet connection"
-              : "Something went wrong. Try again later",
-        },
-      });
-    });
+    .catch((error) => { setErrors(dispatch, error) });
 };
 
 // Delete token in local storage and
@@ -139,3 +110,20 @@ const setAuthorizationHeader = (token) => {
   localStorage.setItem("FBIdToken", FBIdToken);
   axios.defaults.headers.common["Authorization"] = FBIdToken;
 };
+
+const setErrors = (dispatch, error) => {
+  let payload = {};
+
+  if (error.message === "Network Error") {
+    // Catch network errors
+    payload.message = "No internet connection";
+  }
+  if (!(error.response === undefined)) {
+    // Catch errors from server
+    payload = error.response.data;
+  }
+
+  if (Object.keys(payload).length > 0) {
+    dispatch({ type: SET_ERRORS, payload });
+  }
+}

@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../redux/actions/userActions";
 
 // Components
-import Signup from "../components/signup";
+import SignupForm from "./signupForm";
 
 // Material UI
 import IconButton from "@material-ui/core/IconButton";
@@ -110,7 +110,7 @@ export class Profile extends Component {
               Joined {dayjs(createdAt).format("MMM YYYY")}
             </Typography>
             <div onClick={this.handleClose}>
-              <Signup />
+              <SignupForm />
             </div>
             <Divider light />
             <Button onClick={this.handleSignout} variant="contained">
@@ -140,7 +140,7 @@ export class Profile extends Component {
           excat="true"
           to="/signup"
         >
-          Signup
+          Sign up
         </Button>
       </React.Fragment>
     );

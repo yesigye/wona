@@ -7,7 +7,7 @@ body {
   background-color: rgba(245, 245, 245);
 }
 .container {
-  margin: 80px auto 0 auto;
+  margin: 65px auto 0 auto;
   max-width: 1200px;
 }
 a {
@@ -43,6 +43,15 @@ h6 {
   font-size: inherit !important;
   position: relative;
   top: 2px;
+}
+.logo {
+  background-size: contain;
+  background-image: url("/images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80px;
+  height: 60px;
+  display: inline-block;
 }
 .progress-center {
   position: absolute;

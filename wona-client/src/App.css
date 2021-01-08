@@ -61,3 +61,10 @@ h6 {
   right: 0;
   margin: auto;
 }
+.noBorder::before,
+.noBorder::after {
+  border: none !important;
+  border-radius: 0 !important;
+}
+.noBorder:focus {
+}

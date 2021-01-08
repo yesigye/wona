@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.58e024e7.chunk.css",
+    "main.js": "/static/js/main.17130902.chunk.js",
+    "main.js.map": "/static/js/main.17130902.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bea1042f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bea1042f.js.map",
+    "static/js/2.fb08f9b8.chunk.js": "/static/js/2.fb08f9b8.chunk.js",
+    "static/js/2.fb08f9b8.chunk.js.map": "/static/js/2.fb08f9b8.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e0879b5ef5c76434eee954d0d81a6e1e.js": "/precache-manifest.e0879b5ef5c76434eee954d0d81a6e1e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.58e024e7.chunk.css.map": "/static/css/main.58e024e7.chunk.css.map",
+    "static/js/2.fb08f9b8.chunk.js.LICENSE.txt": "/static/js/2.fb08f9b8.chunk.js.LICENSE.txt",
+    "static/media/mastercard.svg": "/static/media/mastercard.7cf7825e.svg",
+    "static/media/visa.svg": "/static/media/visa.10f358b2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bea1042f.js",
+    "static/js/2.fb08f9b8.chunk.js",
+    "static/css/main.58e024e7.chunk.css",
+    "static/js/main.17130902.chunk.js"
+  ]
+}

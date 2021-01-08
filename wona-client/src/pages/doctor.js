@@ -20,6 +20,13 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
 //Icons
 import BugReportIcon from "@material-ui/icons/BugReport";
 // Redux
@@ -35,6 +42,9 @@ import { getParams } from "../utils/urls";
 import Skeleton from "@material-ui/lab/Skeleton";
 
 const moreStyles = {
+  paper: {
+    padding: "1.2rem 15px",
+  },
   card: {
     display: "flex",
     marginBottom: "1rem",
@@ -85,6 +95,11 @@ const styles = (theme) => ({
     margin: 0,
     padding: "1.2rem 15px",
   },
+  table: {
+    "& .MuiTableCell-root": {
+      fontSize: theme.typography.fontSize
+    }
+  },
   displayBlock: {
     display: "block",
   },
@@ -98,21 +113,27 @@ const styles = (theme) => ({
 const appointment = {};
 
 export class doctor extends Component {
-  state = {
-    expanded: "panel1",
-    bookDisplayDate: "",
-    isDateSelected: false,
-  };
+  constructor(){
+    super();
+    this.state = {
+      doctor: {},
+      expanded: "panel1",
+      bookDisplayDate: "",
+      isDateSelected: false,
+    };
+    dayjs.extend(relativeTime);
+  }
 
   componentDidMount() {
-    const { doctors, doctor } = this.props.data;
-    const { id: doctorId } = this.props.match.params;
-    // Check if doctor isn't in state but all doctors are in state
-    if (Object.keys(doctor).length === 0 && doctors.length > 0) {
-      // Get single doctor from state docotrs
-      this.props.data.doctor = doctors.find((doc) => doc.doctorId === doctorId);
+    // const { doctors, doctor } = this.props.data;
+    const { id } = this.props.match.params;
+    const { doctor } = this.props.data;
+    
+    if(Object.keys(doctor).length > 0 && id === doctor.doctorId) {
+      // Doctor already in redux state.
+      this.setState({ doctor: this.props.data.doctor })
     } else {
-      this.props.getDoctor(doctorId);
+      this.props.getDoctor(id);
     }
 
     // Extract date timestamp from url
@@ -131,44 +152,54 @@ export class doctor extends Component {
       });
     }
   }
+  
+  componentDidUpdate(prevProps, prevState) {
+    const prevDoc = prevProps.data.doctor;
+    const newDoc = this.props.data.doctor;
+    const prevDocId = Object.keys(prevDoc).length ? prevDoc.doctorId : '';
+    const newDocId = Object.keys(newDoc).length ? newDoc.doctorId : '';
+    // Doctor data has changed. Update react state.
+    (prevDocId !== newDocId) && this.setState({doctor: this.props.data.doctor});
+  }
+  
+  handlePayment = (isPaid) => {
+    console.log("appointment paid status", isPaid);
+  }
 
   handleBooking = (date) => {
     this.setState({
       isDateSelected: true,
       bookDisplayDate: dayjs(date).format("h:mma dddd, MMM D"),
     });
-
     this.props.history.push("?date=" + dayjs(date).unix());
-
     // Set chosen appointment date
     appointment.dueDate = date;
     // Set logged in user as appointment user
-    this.props.user.authenticated &&
-      (appointment.this.props.user = {
+    if(this.props.user.authenticated) {
+      appointment.user = {
         handle:
           this.props.user.credentials.firstName +
           " " +
           this.props.user.credentials.lastName,
         avatar: this.props.user.credentials.avatar,
-      });
+      }
+    }
+  };
 
-    console.log(appointment);
+  handleChange = (panel) => (event, isExpanded) => {
+    this.setState({ expanded: isExpanded ? panel : false });
   };
 
   render() {
     const {
       classes,
       user,
-      data: { doctor },
     } = this.props;
-
-    dayjs.extend(relativeTime);
-    const handleChange = (panel) => (event, isExpanded) => {
-      this.setState({ expanded: isExpanded ? panel : false });
-    };
+    const { doctor } = this.state;
+    const redirect = `${this.props.location.pathname}${this.props.location.search}`;
 
     return (
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className="mt2">
         <Grid item sm={7} xs={12}>
           <Paper className={classes.content}>
             <Grid container spacing={2}>
@@ -247,10 +278,44 @@ export class doctor extends Component {
           <Paper className={classes.accordionHeader}>
             <Typography>BOOK AN APPOINTMENT</Typography>
           </Paper>
+          
+          <Paper className={classes.paper}>
+            <Typography variant="h5" color="secondary" align="center" gutterBottom={false}>
+              Appointment Confirmed!
+            </Typography>
+            <Typography variant="body1" align="center" paragraph={true}>
+              An email confirmation has been sent to your email
+            </Typography>
+            <Table className={classes.table} size="medium">
+              <TableBody>
+                <TableRow key={1}>
+                  <TableCell variant="head">Date</TableCell>
+                  <TableCell align="right">{this.state.bookDisplayDate}</TableCell>
+                </TableRow>
+                <TableRow key={2}>
+                  <TableCell variant="head">Location</TableCell>
+                  <TableCell align="right">Kampala <a href="#">View on Map</a> </TableCell>
+                </TableRow>
+                <TableRow key={3}>
+                  <TableCell variant="head">Payment</TableCell>
+                  <TableCell align="right" component="h6">USD 20</TableCell>
+                </TableRow>
+                <TableRow key={4}>
+                  <TableCell variant="head">Payment Method</TableCell>
+                  <TableCell align="right" component="h6">Mobile Money</TableCell>
+                </TableRow>
+                <TableRow key={5}>
+                  <TableCell variant="head">Transaction ID</TableCell>
+                  <TableCell align="right" component="h6">FS345643DC2433D</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </Paper>
+
           <div className={classes.root}>
             <Accordion
               expanded={this.state.expanded === "panel1"}
-              onChange={handleChange("panel1")}
+              onChange={this.handleChange("panel1")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -284,7 +349,7 @@ export class doctor extends Component {
             </Accordion>
             <Accordion
               expanded={this.state.expanded === "panel2"}
-              onChange={handleChange("panel2")}
+              onChange={this.handleChange("panel2")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -313,13 +378,13 @@ export class doctor extends Component {
               <Divider className={classes.marginlessDivider}></Divider>
               {!user.authenticated && !user.loading && (
                 <AccordionDetails>
-                  <SignupForm />
+                  <SignupForm redirect={redirect} />
                 </AccordionDetails>
               )}
             </Accordion>
             <Accordion
               expanded={this.state.expanded === "panel3"}
-              onChange={handleChange("panel3")}
+              onChange={this.handleChange("panel3")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -350,7 +415,7 @@ export class doctor extends Component {
                 <Divider></Divider>
                 <Grid container spacing={2}>
                   <Grid item xs={4}>
-                    <MtnMomoButton />
+                    <MtnMomoButton onPaid={this.handlePayment.bind(this)} />
                   </Grid>
                   <Grid item xs={4}>
                     <Paper className={classes.payAirtel}>

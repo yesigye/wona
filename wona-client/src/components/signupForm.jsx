@@ -40,7 +40,7 @@ class SignupForm extends Component {
   }
 
   // Localize Redux state errors
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
   }
 
@@ -158,7 +158,7 @@ class SignupForm extends Component {
           </Grid>
           <Grid item>
             <Link href={redirect} variant="body2">
-              {"Don't have an account? Sign Up"}
+              {"Already have an account? Sign In"}
             </Link>
           </Grid>
         </Grid>

@@ -43,7 +43,7 @@ export class Doctor extends Component {
         <CardMedia image={avatar} title={firstName} className={classes.image} />
         <CardContent className={classes.content}>
           <Typography
-            variant="h5"
+            variant="h6"
             color="primary"
             component={Link}
             to={`/doctor/${doctorId}/${firstName}-${lastName}-${department}`}

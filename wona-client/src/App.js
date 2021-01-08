@@ -14,8 +14,8 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./utils/theme";
 
 // Components
-import Navbar from "./components/navbar";
 import AuthRoute from "./components/AuthRoute";
+import Navbar from "./components/navbar";
 
 // Pages
 import home from "./pages/home";
@@ -25,6 +25,7 @@ import doctors from "./pages/doctors";
 import doctor from "./pages/doctor";
 import profile from "./pages/profile";
 import account from "./pages/account";
+import dashboard from "./pages/dashboard";
 
 import axios from "axios";
 axios.defaults.baseURL =
@@ -62,6 +63,8 @@ class App extends Component {
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/profile" component={profile} />
                 <Route exact path="/account" component={account} />
+
+                <Route exact path="/dashboard" component={dashboard} />
               </Switch>
             </div>
           </Router>

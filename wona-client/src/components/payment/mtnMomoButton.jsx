@@ -76,6 +76,7 @@ class MtnMomoPayButton extends Component {
 
   handleSubmit = (event) => {
     console.log("process payment");
+    this.props.onPaid(true);
   };
 
   render() {

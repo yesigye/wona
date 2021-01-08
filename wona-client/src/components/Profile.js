@@ -133,7 +133,8 @@ export class Profile extends Component {
           Login
         </Button>
         <Button
-          color="inherit"
+          variant="outlined"
+          color="secondary"
           component={NavLink}
           activeClassName={classes.isActive}
           parttern="/signup"

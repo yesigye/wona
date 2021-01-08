@@ -25,6 +25,18 @@ export const getDoctors = () => (dispatch) => {
   //     });
 };
 
+export const filterDoctors = (filter, value) => (dispatch) => {
+  let filtered = [];
+  if (filter === "department") {
+    filtered = demoDoctors ? demoDoctors.filter(d => d.department === value) : demoDoctors;
+  }
+  dispatch({ type: LOADING_DATA });
+  dispatch({
+    type: SET_DOCTORS,
+    payload: filtered,
+  });
+};
+
 export const getDoctor = (id) => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   dispatch({

@@ -1,47 +1,50 @@
-import {
-  SET_USER,
-  SET_AUTHENTICATED,
-  SET_UNAUTHENTICATED,
-  LOADING_USER,
-  LOADED_USER,
-} from "../types";
+import { userActionTypes } from "../types";
 
 const initialState = {
   authenticated: false,
   loading: false,
-  credentials: {},
+  credentials: {
+    email: '',
+    password: '', // For UI purporse only.
+  },
   notifications: [],
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case SET_AUTHENTICATED:
+    case userActionTypes.SET_AUTHENTICATED:
       return {
         ...state,
         authenticated: true,
       };
 
-    case SET_UNAUTHENTICATED:
+    case userActionTypes.SET_UNAUTHENTICATED:
       return initialState;
 
-    case SET_USER:
+    case userActionTypes.SET_USER:
       return {
         authenticated: true,
         loading: false,
         ...action.payload,
       };
 
-    case LOADING_USER:
+    case userActionTypes.SAVE_USER:
       return {
         ...state,
-        loading: true,
+        credentials: action.payload,
       };
 
-    case LOADED_USER:
-      return {
-        ...state,
-        loading: false,
-      };
+    // case LOADING_USER:
+    //   return {
+    //     ...state,
+    //     loading: true,
+    //   };
+
+    // case LOADED_USER:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //   };
 
     default:
       return state;

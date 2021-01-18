@@ -18,7 +18,7 @@ import Doctor from "../components/Doctor";
 
 // Redux
 import { connect } from "react-redux";
-import { getDoctors, filterDoctors } from "../redux/actions/dataActions";
+import { getDoctors, filterDoctors } from "../redux/actions/doctorsActions";
 import { Hidden, Typography } from "@material-ui/core";
 
 const outline = {
@@ -102,11 +102,11 @@ export class doctors extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (
-      prevProps.data.doctors.length &&
-      this.props.data.doctors.length !== prevProps.data.doctors.length
+      prevProps.doctors.length &&
+      this.props.doctors.length !== prevProps.doctors.length
     ) {
       // Update doctor count to retain original number after filtering
-      this.setState({ doctorsTotal: prevProps.data.doctors.length });
+      this.setState({ doctorsTotal: prevProps.doctors.length });
     }
   }
 
@@ -122,8 +122,8 @@ export class doctors extends Component {
 
   render() {
     const { doctorsTotal, filters } = this.state;
-    const { classes, data: {doctors, loading} } = this.props;
-    const count = this.props.data.doctors.length;
+    const { classes, doctors, loading } = this.props;
+    const count = this.props.doctors.length;
 
     return (
       <div style={{paddingTop: '1rem'}}>
@@ -210,7 +210,8 @@ doctors.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  data: state.data,
+  doctors: state.doctors.data,
+  loading: state.doctors.loading,
 });
 
 export default connect(

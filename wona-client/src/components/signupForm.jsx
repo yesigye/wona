@@ -3,14 +3,21 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import propTypes from "prop-types";
 // Redux stuff
 import { connect } from "react-redux";
-import { signupUser } from "../redux/actions/userActions";
+import {
+  saveUserData,
+  signupUser,
+  getLoginErrors,
+  isLoggingIn
+} from "../redux/actions/userActions";
 // Material UI
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { CircularProgress } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
+// components
+import Toast from "./Toast";
 // Utility functions
 import { getParams } from "../utils/urls";
 
@@ -39,9 +46,46 @@ class SignupForm extends Component {
     };
   }
 
-  // Localize Redux state errors
-  componentDidUpdate(nextProps) {
-    if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
+  componentDidUpdate(prevProps, prevState) {
+    const oldErrors = prevProps.getLoginErrors(prevProps);
+    const newErrors = this.props.getLoginErrors(this.props);
+    let errorsChanged = (typeof oldErrors !== typeof newErrors);
+    const oldUserData = prevProps.user.credentials;
+    const newUserData = this.props.user.credentials;
+    let userDataChanged = (oldUserData.length !== newUserData.length);
+
+    if(typeof newErrors === "object" && typeof oldErrors === "object") {
+      // Check for changes in error object properties
+      for (const i in {...oldErrors, ...newErrors}) {
+        const propsAdded = !oldErrors.hasOwnProperty(i);
+        const propsRemoved = !newErrors.hasOwnProperty(i);
+        const propValueChanged = (oldErrors.hasOwnProperty(i) && oldErrors[i] !== newErrors[i]);
+
+        if(propValueChanged || propsAdded || propsRemoved) {
+          errorsChanged = true;
+        }
+      }
+    }
+    if(errorsChanged) this.setState({ errors: newErrors });
+
+    // Check for changes in error object properties
+    if(!userDataChanged) {
+      for (const i in newUserData) {
+        if(
+          !oldUserData.hasOwnProperty(i) ||
+          (oldUserData.hasOwnProperty(i) && oldUserData[i] !== newUserData[i])
+        ) {
+          userDataChanged = true;
+        }
+      }
+    }
+    if (userDataChanged) {
+      this.setState({ ...this.state, ...newUserData })
+    }
+    
+    if(prevState.loading !== this.props.isLoggingIn()) {
+      this.setState({ loading: this.props.isLoggingIn() })
+    }
   }
 
   handleSubmit = (event) => {
@@ -51,18 +95,17 @@ class SignupForm extends Component {
     const newUser = { email, password, firstName, lastName };
     this.props.signupUser(newUser, this.props.history, this.props.redirect);
   };
+  
   handleChange = (event) => {
-    this.setState({
+    this.props.saveUserData({
+      ...this.props.user.credentials,
       [event.target.name]: event.target.value,
     });
   };
 
   render() {
-    const {
-      classes,
-      UI: { loading },
-    } = this.props;
-    const { errors } = this.state;
+    const { classes } = this.props;
+    const { errors, loading } = this.state;
 
     const redirect = this.props.redirect === undefined ?
                     '/login' :
@@ -85,8 +128,8 @@ class SignupForm extends Component {
               className={classes.textField}
               onChange={this.handleChange}
               value={this.state.firstName}
-              error={Boolean(errors.firstName)}
-              helperText={errors.firstName}
+              error={Boolean(errors?.firstName)}
+              helperText={errors?.firstName}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -101,8 +144,8 @@ class SignupForm extends Component {
               className={classes.textField}
               onChange={this.handleChange}
               value={this.state.lastName}
-              error={Boolean(errors.lastName)}
-              helperText={errors.lastName}
+              error={Boolean(errors?.lastName)}
+              helperText={errors?.lastName}
             />
           </Grid>
         </Grid>
@@ -117,8 +160,8 @@ class SignupForm extends Component {
           value={this.state.email}
           onChange={this.handleChange}
           className={classes.textField}
-          helperText={errors.email}
-          error={Boolean(errors.email)}
+          helperText={errors?.email}
+          error={Boolean(errors?.email)}
         />
         <TextField
           fullWidth
@@ -131,13 +174,11 @@ class SignupForm extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           className={classes.textField}
-          helperText={errors.password}
-          error={Boolean(errors.password)}
+          helperText={errors?.password}
+          error={Boolean(errors?.password)}
         />
-        {errors.message && (
-          <Typography variant="body2" className={classes.loginErrorText}>
-            {errors.message}
-          </Typography>
+        {errors?.message && (
+          <Toast severity="error" message={errors?.message} />
         )}
         <Button
           fullWidth
@@ -172,6 +213,8 @@ SignupForm.propTypes = {
   user: propTypes.object.isRequired,
   UI: propTypes.object.isRequired,
   signupUser: propTypes.func.isRequired,
+  saveUserData: propTypes.func.isRequired,
+  getLoginErrors: propTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -179,6 +222,11 @@ const mapStateToProps = (state) => ({
   UI: state.UI,
 });
 
-export default connect(mapStateToProps, { signupUser })(
+export default connect(mapStateToProps, {
+  saveUserData,
+  signupUser,
+  getLoginErrors,
+  isLoggingIn
+})(
   withStyles(styles)(SignupForm)
 );

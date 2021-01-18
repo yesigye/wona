@@ -31,12 +31,13 @@ import TableRow from '@material-ui/core/TableRow';
 import BugReportIcon from "@material-ui/icons/BugReport";
 // Redux
 import { connect } from "react-redux";
-import { getDoctor } from "../redux/actions/dataActions";
+import { getDoctor } from "../redux/actions/doctorActions";
 // Components
 import Slots from "../components/slots";
 import SignupForm from "../components/signupForm";
 import MtnMomoButton from "../components/payment/mtnMomoButton";
 import CreditCardButton from "../components/payment/card/creditCardButton";
+import Toast from "../components/Toast"
 // Utility functions
 import { getParams } from "../utils/urls";
 import Skeleton from "@material-ui/lab/Skeleton";
@@ -108,10 +109,21 @@ const styles = (theme) => ({
     backgroundColor: "#dc3545",
     color: "#ffffff",
   },
+  cardBlock: {
+    ...theme.custom.payBlock,
+    boxShadow: "none",
+    padding: "1.2rem 15px",
+    border: "1px solid #ccc",
+    marginTop: 20
+  }
 });
 
-const appointment = {};
-
+/**
+ * Doctor's view page
+ * 
+ * @version 1.0.1
+ * @author [ignatius yesigye](https://github.com/yesigye)
+ */
 export class doctor extends Component {
   constructor(){
     super();
@@ -120,6 +132,7 @@ export class doctor extends Component {
       expanded: "panel1",
       bookDisplayDate: "",
       isDateSelected: false,
+      appointment: {}
     };
     dayjs.extend(relativeTime);
   }
@@ -127,66 +140,115 @@ export class doctor extends Component {
   componentDidMount() {
     // const { doctors, doctor } = this.props.data;
     const { id } = this.props.match.params;
-    const { doctor } = this.props.data;
+    const { doctor } = this.props;
     
     if(Object.keys(doctor).length > 0 && id === doctor.doctorId) {
       // Doctor already in redux state.
-      this.setState({ doctor: this.props.data.doctor })
+      this.setState({ doctor: doctor })
     } else {
       this.props.getDoctor(id);
     }
 
+    /**
+     * Next: (Scenario) User has already set booking date
+     * then refreshed browser or another component triggers
+     * a component re-rendering
+      */
     // Extract date timestamp from url
+    // TODO: change the date to relay on Redux not URI
     const { date } = getParams(this.props.location.search);
     if (date) {
       // Set state to
       // reflect the booking date
       // display the next tab panel
-
-      // TODO: change the date to relay on Redux not URI
       this.setState({
         isDateSelected: true,
         urlDate: date,
         bookDisplayDate: dayjs.unix(date).format("h:mma dddd, MMM D"),
         expanded: "panel2",
+        appointment: {
+          ...this.state.appointment,
+          date: date,
+          doctor: {
+            avatar: this.state.doctor.avatar,
+            handle: this.state.doctor.firstName + " " + this.state.doctor.lastName,
+            department: this.state.doctor.department
+          },
+        }
       });
     }
   }
   
   componentDidUpdate(prevProps, prevState) {
-    const prevDoc = prevProps.data.doctor;
-    const newDoc = this.props.data.doctor;
+    const prevDoc = prevProps.doctor;
+    const newDoc = this.props.doctor;
+    console.log(prevDoc)
     const prevDocId = Object.keys(prevDoc).length ? prevDoc.doctorId : '';
-    const newDocId = Object.keys(newDoc).length ? newDoc.doctorId : '';
+    const newDocId = newDoc && Object.keys(newDoc).length ? newDoc.doctorId : '';
     // Doctor data has changed. Update react state.
-    (prevDocId !== newDocId) && this.setState({doctor: this.props.data.doctor});
+    (prevDocId !== newDocId) && this.setState({doctor: this.props.doctor});
+    
+    // Capture user after they logged in
+    if(!prevState.appointment.user && this.props.user.authenticated) {
+      const user = this.props.user.credentials;
+      console.log("updated", prevState.appointment.user)
+      this.setState({
+        appointment: {
+          ...this.state.appointment,
+          user: {
+            avatar: user.avatar,
+            handle: user.firstName + " " + user.lastName
+          }
+        }
+      });
+    }
   }
   
+  /**
+   * Handles completion of appointment payment
+   * 
+   * @param {string} isPaid whether paid was made or not
+   */
   handlePayment = (isPaid) => {
-    console.log("appointment paid status", isPaid);
+    console.log("appointment paid: status -", isPaid);
+    if(! isPaid) {
+
+      return null;
+    }
+    this.setState({
+      appointment: {
+        ...this.state.appointment,
+        paid: true,
+        status: "complete",
+      }
+    });
+    console.log(this.state.appointment)
   }
 
-  handleBooking = (date) => {
+  /**
+   * Handles change in appointment date
+   * 
+   * @param {string} date booked date
+   */
+  handleDateChange = (date) => {
     this.setState({
       isDateSelected: true,
       bookDisplayDate: dayjs(date).format("h:mma dddd, MMM D"),
+      appointment: {
+        ...this.state.appointment,
+        dueDate: date,
+        status: 'pending'
+      }
     });
     this.props.history.push("?date=" + dayjs(date).unix());
-    // Set chosen appointment date
-    appointment.dueDate = date;
-    // Set logged in user as appointment user
-    if(this.props.user.authenticated) {
-      appointment.user = {
-        handle:
-          this.props.user.credentials.firstName +
-          " " +
-          this.props.user.credentials.lastName,
-        avatar: this.props.user.credentials.avatar,
-      }
-    }
   };
 
-  handleChange = (panel) => (event, isExpanded) => {
+  /**
+   * Handles changes between accordion panel changes
+   * 
+   * @param {string} panel accordion panel to expand
+   */
+  handlePanelChange = (panel) => (event, isExpanded) => {
     this.setState({ expanded: isExpanded ? panel : false });
   };
 
@@ -197,6 +259,7 @@ export class doctor extends Component {
     } = this.props;
     const { doctor } = this.state;
     const redirect = `${this.props.location.pathname}${this.props.location.search}`;
+    if(doctor) doctor.fullname = `${doctor.firstName} ${doctor?.lastName}`;
 
     return (
       <Grid container spacing={2} className="mt2">
@@ -212,14 +275,15 @@ export class doctor extends Component {
                 />
               </Grid>
               <Grid item sm={8} xs={8}>
-                {doctor?.firstName ? (
-                  <Typography variant="h5">
-                    Dr. {doctor?.firstName + " " + doctor?.lastName}
-                  </Typography>
-                ) : (
-                  <Skeleton variant="text"></Skeleton>
-                )}
-                <div color="textSecondary">{doctor.department}</div>
+                <Typography variant="h5">
+                  {doctor.firstName ?
+                    `Dr. ${doctor.firstName} ${doctor?.lastName}` :
+                    <Skeleton variant="text"></Skeleton>
+                  }
+                </Typography>
+                <div color="textSecondary">
+                  {doctor.department ? doctor.department : <Skeleton variant="text"/>}
+                </div>
                 <Typography>{doctor.location?.address}</Typography>
                 <Button variant="contained" color="primary" className="mt2">
                   Book an appointment
@@ -278,7 +342,6 @@ export class doctor extends Component {
           <Paper className={classes.accordionHeader}>
             <Typography>BOOK AN APPOINTMENT</Typography>
           </Paper>
-          
           <Paper className={classes.paper}>
             <Typography variant="h5" color="secondary" align="center" gutterBottom={false}>
               Appointment Confirmed!
@@ -310,12 +373,29 @@ export class doctor extends Component {
                 </TableRow>
               </TableBody>
             </Table>
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <Button variant="primary" fullWidth className={classes.cardBlock}>
+                  <Typography variant="caption">Print</Typography>
+                </Button>
+              </Grid>
+              <Grid item xs={4}>
+                <Button variant="primary" fullWidth className={classes.cardBlock}>
+                  <Typography variant="caption">Share</Typography>
+                </Button>
+              </Grid>
+              <Grid item xs={4}>
+                <Button variant="primary" fullWidth className={classes.cardBlock}>
+                  <Typography variant="caption">to Google</Typography>
+                </Button>
+              </Grid>
+            </Grid>
           </Paper>
 
           <div className={classes.root}>
             <Accordion
               expanded={this.state.expanded === "panel1"}
-              onChange={this.handleChange("panel1")}
+              onChange={this.handlePanelChange("panel1")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -343,13 +423,13 @@ export class doctor extends Component {
                   Component="Backdrop"
                   open={true}
                   selectedDate={this.state.urlDate}
-                  handleBooking={this.handleBooking.bind(this)}
+                  handleBooking={this.handleDateChange.bind(this)}
                 />
               </AccordionDetails>
             </Accordion>
             <Accordion
               expanded={this.state.expanded === "panel2"}
-              onChange={this.handleChange("panel2")}
+              onChange={this.handlePanelChange("panel2")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -384,7 +464,7 @@ export class doctor extends Component {
             </Accordion>
             <Accordion
               expanded={this.state.expanded === "panel3"}
-              onChange={this.handleChange("panel3")}
+              onChange={this.handlePanelChange("panel3")}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -437,13 +517,17 @@ export class doctor extends Component {
 
 doctor.propTypes = {
   getDoctor: propTypes.func.isRequired,
+  UI: propTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  data: state.data,
+  doctor: state.doctor.data,
+  loading: state.doctor.loading,
+  errors: state.doctor.errors,
 });
 
-export default connect(mapStateToProps, { getDoctor })(
-  withStyles(styles)(doctor)
-);
+export default connect(
+  mapStateToProps,
+  { getDoctor }
+)(withStyles(styles)(doctor));

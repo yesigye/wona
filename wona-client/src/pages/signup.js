@@ -6,17 +6,10 @@ import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 // Material UI
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import MLink from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { CircularProgress } from "@material-ui/core";
 // Components
 import SignupForm from "../components/signupForm";
 
@@ -65,34 +58,6 @@ const styles = (theme) => ({
 });
 
 class Signup extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      confirmPassword: "",
-      errors: {},
-    };
-  }
-
-  // Localize Redux state errors
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.setState({ loading: true });
-    const { email, password, confirmPassword } = this.state;
-    const newUser = { email, password, confirmPassword };
-    this.props.signupUser(newUser, this.props.history);
-  };
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
   render() {
     const {classes} = this.props;
     
@@ -160,10 +125,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-  classes: propTypes.object.isRequired,
-  user: propTypes.object.isRequired,
-  UI: propTypes.object.isRequired,
-  signupUser: propTypes.func.isRequired,
+  classes: propTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -171,6 +133,6 @@ const mapStateToProps = (state) => ({
   UI: state.UI,
 });
 
-export default connect(mapStateToProps, { signupUser })(
+export default connect(mapStateToProps)(
   withStyles(styles)(Signup)
 );

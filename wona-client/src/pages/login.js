@@ -18,7 +18,14 @@ import Alert from '@material-ui/lab/Alert';
 
 // Redux stuff
 import { connect } from "react-redux";
-import { loginUser } from "../redux/actions/userActions";
+import {
+  saveUserData,
+  loginUser,
+  isLoggingIn,
+  getLoginErrors
+} from "../redux/actions/userActions";
+
+import Toast from "../components/Toast";
 
 // Utility functions
 import { getParams } from "../utils/urls";
@@ -62,9 +69,49 @@ class Login extends Component {
     };
   }
 
-  // Localize Redux state errors
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
+  componentDidUpdate(prevProps, prevState) {
+    const oldErrors = prevProps.getLoginErrors(prevProps);
+    const newErrors = this.props.getLoginErrors(this.props);
+    let errorsChanged = (typeof oldErrors !== typeof newErrors);
+    const oldUserData = prevProps.user.credentials;
+    const newUserData = this.props.user.credentials;
+    let userDataChanged = (oldUserData.length !== newUserData.length);
+
+    // Check for changes in error object properties
+    if(typeof newErrors === "object") {
+      for (const i in newErrors) {
+        if(
+          typeof oldErrors === "object" &&
+          (
+            !oldErrors.hasOwnProperty(i) ||
+            (oldErrors.hasOwnProperty(i) && oldErrors[i] !== newErrors[i])
+          )
+        ) {
+          errorsChanged = true;
+        }
+      }
+    }
+    if(errorsChanged) this.setState({ errors: newErrors });
+
+    // Check for changes in error object properties
+    if(!userDataChanged) {
+      for (const i in newUserData) {
+        if(
+          !oldUserData.hasOwnProperty(i) ||
+          (oldUserData.hasOwnProperty(i) && oldUserData[i] !== newUserData[i])
+        ) {
+          userDataChanged = true;
+        }
+      }
+    }
+    console.log(userDataChanged, oldUserData, newUserData)
+    if (userDataChanged) {
+      this.setState({ ...this.state, ...newUserData })
+    }
+    
+    if(prevState.loading !== this.props.isLoggingIn()) {
+      this.setState({ loading: this.props.isLoggingIn() })
+    }
   }
 
   handleSubmit = (event) => {
@@ -75,18 +122,17 @@ class Login extends Component {
     );
     this.props.loginUser({ email, password }, this.props.history, urlParams.to);
   };
+
   handleChange = (event) => {
-    this.setState({
+    this.props.saveUserData({
+      ...this.props.user.credentials,
       [event.target.name]: event.target.value,
     });
   };
 
   render() {
-    const {
-      classes,
-      UI: { loading },
-    } = this.props;
-    const { errors } = this.state;
+    const { classes } = this.props;
+    const { errors, loading } = this.state;
 
     return (
       <Grid container component="main" className={classes.root}>
@@ -108,8 +154,8 @@ class Login extends Component {
                 value={this.state.email}
                 onChange={this.handleChange}
                 className={classes.textField}
-                helperText={errors.email}
-                error={Boolean(errors.email)}
+                helperText={errors?.email}
+                error={Boolean(errors?.email)}
                 required
                 fullWidth
                 autoFocus
@@ -123,8 +169,8 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
                 className={classes.textField}
-                helperText={errors.password}
-                error={Boolean(errors.password)}
+                helperText={errors?.password}
+                error={Boolean(errors?.password)}
                 fullWidth
                 required
               />
@@ -132,10 +178,10 @@ class Login extends Component {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              {errors.message && (
-                <Alert severity="error">{errors.message}</Alert>
+              {errors?.message && (
+                <Toast severity="error" message={errors.message}/>
               )}
-              {errors.login && (
+              {errors?.login && (
                 <Typography variant="body2" className={classes.loginErrorText}>
                   {errors.login}
                 </Typography>
@@ -187,7 +233,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
+  saveUserData,
   loginUser,
+  getLoginErrors,
+  isLoggingIn,
 };
 
 export default connect(

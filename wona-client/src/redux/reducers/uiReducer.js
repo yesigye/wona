@@ -1,54 +1,70 @@
-import {
-  SET_ALERTS,
-  CLEAR_ALERTS,
-  SET_ERRORS,
-  CLEAR_ERRORS,
-  LOADING_UI,
-} from "../types";
+import { uiActionTypes } from '../types';
 
 const initialState = {
-  loading: false,
-  errors: null,
-  alerts: null,
+  loader: {
+    actions: [],
+    refreshing: [],
+  },
+  errors: {
+    actions: []
+  },
 };
 
-export default function (state = initialState, action) {
-  switch (action.type) {
-    case SET_ERRORS:
+const uiReducer = (state = initialState, { type, payload }) => {
+  const { loader } = state;
+  const { actions, refreshing, errors } = loader;
+  switch (type) {
+    case uiActionTypes.START_ACTION:
       return {
         ...state,
-        loading: false,
-        errors: action.payload,
+        loader: {
+          ...loader,
+          actions: [...actions, payload.action]
+        }
       };
-
-    case CLEAR_ERRORS:
+    case uiActionTypes.STOP_ACTION:
       return {
         ...state,
-        loading: false,
-        errors: null,
+        loader: {
+          ...loader,
+          actions: actions.filter(action => action.name !== payload.name)
+        }
       };
-
-    case SET_ALERTS:
+    case uiActionTypes.REFRESH_ACTION_START:
       return {
         ...state,
-        loading: false,
-        alerts: action.payload,
+        loader: {
+          ...loader,
+          refreshing: [...refreshing, payload.refreshAction]
+        }
       };
-
-    case CLEAR_ALERTS:
+    case uiActionTypes.REFRESH_ACTION_STOP:
       return {
         ...state,
-        loading: false,
-        alerts: null,
+        loader: {
+          ...loader,
+          refreshing: refreshing.filter(refresh => refresh !== payload.refreshAction)
+        }
       };
-
-    case LOADING_UI:
+    case uiActionTypes.SET_ERROR:
       return {
         ...state,
-        loading: true,
+        errors: {
+          ...errors,
+          actions: [...actions, payload.action]
+        }
       };
-
+    case uiActionTypes.CLEAR_ERROR:
+      return {
+        ...state,
+        errors: {
+          ...errors,
+          actions: actions.filter(action => action.name !== payload.name)
+        }
+      };
     default:
       return state;
   }
-}
+};
+
+export default uiReducer;

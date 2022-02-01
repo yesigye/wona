@@ -3,10 +3,7 @@ import { userActionTypes } from "../types";
 const initialState = {
   authenticated: false,
   loading: false,
-  credentials: {
-    email: '',
-    password: '', // For UI purporse only.
-  },
+  credentials: {},
   notifications: [],
 };
 

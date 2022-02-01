@@ -1,17 +1,22 @@
-import store from "./store";
-
-export const getErrors = (action, state) => (dispatch) => {
-    const actions = state.UI.errors.actions;
-    
-    if(actions.length === 0) return;
-
-    return actions.find(e => e.name === action).params;
+export const getErrors = (store, action) => {
+  const actions = store.UI.errors.actions;
+  if (actions.length === 0) return;
+  const actionData = actions.find((e) => e.name === action);
+  return actionData ? actionData.params : {};
 };
 
-export const isLoading = action => dispatch => {
-    const actions = store.getState().UI.loader.actions;
-    
-    if(actions.length === 0) return;
+export const getNotifications = (store, action) => {
+  const actions = store.UI.notifications.actions;
 
-    return actions.find(e => e.name === action).params;
+  if (actions.length === 0) return;
+
+  return actions.find((e) => e.name === action).params;
+};
+
+export const isLoading = (store, action) => {
+  const actions = store.UI.loader.actions;
+
+  if (actions.length === 0) return false;
+
+  return actions.some((e) => e.name === action);
 };

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-
 // Redux
 import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
-
+import { isLoading, getErrors, getNotifications } from "../redux/selectors";
+import { userActionTypes } from "../redux/types";
 // Material UI
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -15,8 +15,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Alert from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
+// Components
+import Toast from "./Toast";
+// Utilities
+import { isObjectDifferent } from "../utils/stateFunctions";
+import { isDayjs } from "dayjs";
 
 const styles = (theme) => {
   const customTheme = { ...theme.custom };
@@ -42,12 +45,14 @@ const styles = (theme) => {
   return customTheme;
 };
 
+const initialAlerts = { notifications: "", errors: {} };
+
 class EditProfileButton extends Component {
   state = {
     firstName: "",
     lastName: "",
     open: false,
-    finished: false,
+    ...initialAlerts,
   };
 
   mapUserDetailsToState = (credentials) => {
@@ -60,17 +65,24 @@ class EditProfileButton extends Component {
   componentDidMount() {
     const { credentials } = this.props.user;
     this.mapUserDetailsToState(credentials);
+    this.setState({ errors: {}, notifications: "" });
   }
 
-  // Event handlers
+  componentDidUpdate(prevProps) {
+    if (isObjectDifferent(prevProps.notifications, this.props.notifications)) {
+      this.setState({ notifications: this.props.notifications });
+    }
+    if (isObjectDifferent(prevProps.errors, this.props.errors)) {
+      this.setState({ errors: this.props.errors });
+    }
+  }
+
   handleOpen = () => {
     this.setState({ open: true });
     this.mapUserDetailsToState(this.props.user.credentials);
   };
 
-  handleClose = () => this.setState({ open: false });
-
-  handleCloseAlert = () => this.setState({ finished: false });
+  handleClose = () => this.setState({ open: false, ...initialAlerts });
 
   handleChange = (event) => {
     this.setState({
@@ -79,30 +91,26 @@ class EditProfileButton extends Component {
   };
 
   handleSubmit = (event) => {
-    const { credentials: oldDetails } = this.props.user;
+    const { credentials } = this.props.user;
     const newDetails = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
     };
     if (
-      newDetails.firstName === oldDetails.firstName &&
-      newDetails.lastName === oldDetails.lastName
+      newDetails.firstName === credentials.firstName &&
+      newDetails.lastName === credentials.lastName
     ) {
       // Nothing has changed.
       return false;
     }
 
     this.props.editUserDetails(newDetails).then((res) => {
-      this.setState({ finished: true });
+      console.log("done............ ", res);
     });
   };
 
   render() {
-    const {
-      classes,
-      user: { loading },
-      UI: { alerts },
-    } = this.props;
+    const { classes, loading } = this.props;
 
     return (
       <div>
@@ -139,19 +147,17 @@ class EditProfileButton extends Component {
               className={classes.input}
               fullWidth
             />
+            {this.state.notifications && (
+              <Toast
+                placement="top"
+                severity="success"
+                message={this.state.notifications}
+              />
+            )}
+            {this.state.errors?.message && (
+              <Toast severity="error" message={this.state.errors.message} />
+            )}
           </DialogContent>
-          {this.state.finished && alerts && (
-            <Snackbar
-              open={this.state.finished}
-              autoHideDuration={3000}
-              onClose={this.handleCloseAlert}
-              message="hello"
-            >
-              <Alert variant="filled" severity={alerts.type}>
-                {alerts.message}
-              </Alert>
-            </Snackbar>
-          )}
           <DialogActions>
             <Button onClick={this.handleClose} color="secondary">
               Cancel
@@ -172,7 +178,9 @@ class EditProfileButton extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  UI: state.UI,
+  loading: isLoading(state, userActionTypes.SET_USER),
+  errors: getErrors(state, userActionTypes.SET_USER),
+  notifications: getNotifications(state, userActionTypes.SET_USER),
 });
 
 EditProfileButton.propTypes = {

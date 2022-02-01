@@ -36,11 +36,11 @@ exports.getAppointment = (req, res) => {
 exports.createAppointment = (req, res) => {
   const postData = req.body;
 
-  if(! postData.hasOwnProperty("doctorID")) {
+  if (!postData.hasOwnProperty("doctorID")) {
     console.log("Doctor ID is required");
     return res.status(500).send({ message: "something went wrong" });
   }
-  
+
   const appointment = {
     date: admin.firestore.Timestamp.fromDate(new Date(postData.date)),
     user: postData.user,
@@ -52,21 +52,26 @@ exports.createAppointment = (req, res) => {
     createdAt: admin.firestore.Timestamp.fromDate(new Date()),
   };
 
-  if(postData.hasOwnProperty("location") &&  postData.location.hasOwnProperty("geopoint")) {
+  if (
+    postData.hasOwnProperty("location") &&
+    postData.location.hasOwnProperty("geopoint")
+  ) {
     // use firestore immutable geopoint object
     appointment.location.geopoint = new admin.firestore.GeoPoint(
-      postData.location.geopoint.latitude,
-      postData.location.geopoint.longitude
+      postData.location.geopoint[0],
+      postData.location.geopoint[1]
     );
   }
-  
-  db.collection("appointments").add(appointment).then((doc) => {
+
+  db.collection("appointments")
+    .add(appointment)
+    .then((doc) => {
       // Update user & doctor documents for data integrity.
       db.doc(`users/${res.locals.uid}`).update({
-        appointments: firebase.firestore.FieldValue.arrayUnion(doc.id)
+        appointments: firebase.firestore.FieldValue.arrayUnion(doc.id),
       });
       db.doc(`doctors/${postData.doctorID}`).update({
-        appointments: firebase.firestore.FieldValue.arrayUnion(doc.id)
+        appointments: firebase.firestore.FieldValue.arrayUnion(doc.id),
       });
 
       return res

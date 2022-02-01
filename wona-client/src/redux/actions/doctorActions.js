@@ -1,6 +1,15 @@
 import { doctorActionTypes } from "../types";
+import {
+  startAction,
+  stopAction,
+  setError,
+  clearError,
+  setNotification,
+  clearNotification,
+} from "./uiActions";
 import demoDoctors from "../../services/fake-doctors.json";
-// import axios from "axios";
+import axios from "axios";
+import { setNetworkErrors } from "./utility";
 
 export const getDoctor = (id) => (dispatch) => {
   dispatch({
@@ -10,27 +19,36 @@ export const getDoctor = (id) => (dispatch) => {
 };
 
 /**
- * Saving an appointment
- * @param {object} appointment Appointment details object
+ * Set appointment details to state.
+ * @param {object} appointment appointment details
  */
-// export const saveAppointment = (appointment) => (dispatch) => {
-//   dispatch({ type: SET_APPOINTMENT, payload: appointment });
-//   dispatch({ type: SET_APPOINTMENT, payload: appointment });
-  
-//   try {
-//     await axios.post("/appointments", appointment);
-//     dispatch({ type: SET_APPOINTMENT, payload: {} });
-//   } catch (error) {
-//     dispatch({
-//       type: SET_APPOINTMENT_ERROR,
-//       payload: {
-//         type: "error",
-//         message:
-//           error.message === "Network Error"
-//             ? "No internet connection"
-//             : "Something went wrong. Try again later",
-//       },
-//     });
-//     dispatch({ type: LOADED_USER });
-//   }
-// };
+export const setAppointment = (appointment) => (dispatch) => {
+  dispatch({
+    type: doctorActionTypes.SET_APPOINTMENT,
+    payload: appointment,
+  });
+};
+/**
+ * Save appointment permanently to data store.
+ * @param {object} appointment appointment details
+ */
+export const saveAppointment = (appointment) => (dispatch) => {
+  dispatch(startAction(doctorActionTypes.SAVE_APPOINTMENT));
+
+  axios
+    .post("/appointment", appointment)
+    .then((res) => {
+      dispatch({ type: doctorActionTypes.SAVE_APPOINTMENT });
+    })
+    .catch((err) => {
+      console.log(appointment, err.response.data);
+      setNetworkErrors(dispatch, doctorActionTypes.SAVE_APPOINTMENT, err);
+      // dispatch({
+      //   type: doctorActionTypes.SAVE_APPOINTMENT_ERROR,
+      //   payload: true
+      // });
+    })
+    .then(() => {
+      dispatch(stopAction(doctorActionTypes.SAVE_APPOINTMENT));
+    });
+};

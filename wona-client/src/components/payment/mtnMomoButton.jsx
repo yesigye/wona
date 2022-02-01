@@ -1,75 +1,48 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles";
-
 // Redux
 import { connect } from "react-redux";
 import { editUserDetails } from "../../redux/actions/userActions";
-
-// Material UI
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Alert from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
-
-const styles = (theme) => ({
-  ...theme.custom,
-  input: {
-    margin: theme.spacing(1),
-  },
-  errorText: {
-    color: "#f44336",
-    margin: "auto",
-  },
-  payMtn: {
-    ...theme.custom.payBlock,
-    backgroundColor: "#ffc107",
-    "&:hover": {
-      backgroundColor: "#e0a800",
-      borderColor: "#d39e00",
-      boxShadow: "none",
-    },
-  },
-});
+import { isLoading, getErrors } from "../../redux/selectors";
+import { doctorActionTypes } from "../../redux/types";
+// UI
+import Modal from "react-bootstrap/Modal";
+import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
+// Utilities
+import { isObjectDifferent } from "../../utils/stateFunctions";
 
 class MtnMomoPayButton extends Component {
   state = {
     phone: "",
     lastName: "",
-    open: false,
+    openModal: false,
+    openAlert: false,
     finished: false,
+    errors: {},
   };
 
-  mapUserDetailsToState = (credentials) => {
-    this.setState({
-      phone: credentials.phone ? credentials.phone : "",
-    });
-  };
+  componentDidMount() {}
 
-  componentDidMount() {
-    const { credentials } = this.props.user;
-    this.mapUserDetailsToState(credentials);
+  componentDidUpdate(prevProps) {
+    if (isObjectDifferent(prevProps.errors, this.props.errors)) {
+      const { errors } = this.props;
+      this.setState({ errors });
+      if (Object.keys(errors).length && errors.message) {
+        this.setState({ openAlert: true });
+      }
+    }
   }
 
   // Event handlers
-  handleOpen = () => {
-    this.setState({ open: true });
-    this.mapUserDetailsToState(this.props.user.credentials);
-  };
-
-  handleClose = () => this.setState({ open: false });
+  toggleModal = () => this.setState({ openModal: !this.state.openModal });
+  toggleAlert = () => this.setState({ openAlert: !this.state.openAlert });
 
   handleCloseAlert = () => this.setState({ finished: false });
 
-  handleChange = (event) => {
+  handleTextFeildValueChange = (event) => {
     this.setState({
+      ...this.state,
       [event.target.name]: event.target.value,
     });
   };
@@ -80,90 +53,66 @@ class MtnMomoPayButton extends Component {
   };
 
   render() {
-    const {
-      classes,
-      user: { loading },
-      UI: { alerts },
-    } = this.props;
+    const { loading } = this.props;
+    const { openModal, openAlert, errors, paid } = this.state;
 
     return (
-      <div>
-        <Button fullWidth className={classes.payMtn} onClick={this.handleOpen}>
-          <Typography variant="body1">MTN</Typography>
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="momo-pay-form"
+      <React.Fragment>
+        <a
+          className="button-huge bg-warning text-dark"
+          onClick={this.toggleModal}
         >
-          <DialogTitle id="momo-pay-form">Authorize Payment</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
+          MTN
+        </a>
+        <Modal show={openModal} onHide={this.toggleModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Authorize Payment</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>
               Please ensure you have your phone on you with sufficient balance
               in your account. We'll send you a prompt, please enter your pin to
               authorize payment.
-            </DialogContentText>
-            <TextField
-              variant="outlined"
-              name="phone"
-              autoFocus
-              label="MTN Phone Number"
-              type="phone"
-              defaultValue={this.state.phone}
-              onChange={this.handleChange}
-              className={classes.input}
-              fullWidth
+            </p>
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="e.g. 07729876543"
+              onChange={this.handleTextFeildValueChange}
             />
-          </DialogContent>
-          {this.state.finished && alerts && (
-            <Snackbar
-              open={this.state.finished}
-              autoHideDuration={3000}
-              onClose={this.handleCloseAlert}
-              message="hello"
-            >
-              <Alert variant="filled" severity={alerts.type}>
-                {alerts.message}
+            {openAlert && (
+              <Alert variant="danger" onClose={this.toggleAlert} dismissible>
+                {errors.message}
               </Alert>
-            </Snackbar>
-          )}
-          <DialogActions>
-            <Button
-              variant="contained"
-              onClick={this.handleClose}
-              color="default"
-            >
-              Cancel
-            </Button>
-            <Button
-              variant="contained"
+            )}
+          </Modal.Body>
+          <Modal.Footer className="border-0">
+            <button
+              type="button"
+              className="btn btn-warning"
               onClick={this.handleSubmit}
               color="primary"
               disabled={loading}
             >
               {loading && (
-                <CircularProgress className="progress-center" size={20} />
+                <Spinner className="center" animation="border" role="status" />
               )}
               Send prompt
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
-  UI: state.UI,
+  loading: isLoading(state, doctorActionTypes.SAVE_APPOINTMENT),
+  errors: getErrors(state, doctorActionTypes.SAVE_APPOINTMENT),
 });
 
 MtnMomoPayButton.propTypes = {
   user: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-  editUserDetails: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, { editUserDetails })(
-  withStyles(styles)(MtnMomoPayButton)
-);
+export default connect(mapStateToProps, { editUserDetails })(MtnMomoPayButton);
